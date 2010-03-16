@@ -1,6 +1,6 @@
 = mongodb_translations
 
-Description goes here.
+Rails specific I18n model localization, ala Globalize2, backed by MongoDB rather than an RDBMS. May include UI elements, too.
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +14,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 Walter McGinnis. See LICENSE for details.
+Copyright (c) 2010 Horowhenua Library Trust. See LICENSE for details.
