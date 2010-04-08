@@ -4,13 +4,16 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "mongodb_translations"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.name = "mongo_translatable"
+    gem.summary = %Q{MongoDB backed Rails specific I18n model localization meant to tie-in to existing ActiveRecord models}
+    gem.description = %Q{Rails specific I18n model localization meant to tie-in to existing ActiveRecord models, ala Globalize2, backed by MongoDB rather than an RDBMS. May include UI elements, too.}
     gem.email = "walter@katipo.co.nz"
-    gem.homepage = "http://github.com/walter/mongodb_translations"
+    gem.homepage = "http://github.com/kete/mongo_translatable"
     gem.authors = ["Walter McGinnis"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_dependency "mongo_mapper", ">= 0.7.3"
+    gem.add_dependency "activerecord", ">= 2.3.5"
+    gem.add_development_dependency "shoulda", ">= 2.10.3"
+    gem.add_development_dependency "factory_girl", ">= 1.2.3"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
