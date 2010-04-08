@@ -1,6 +1,8 @@
-= mongodb_translations
+= mongo_translatable
 
-Rails specific I18n model localization, ala Globalize2, backed by MongoDB rather than an RDBMS. May include UI elements, too.
+Rails specific I18n model localization meant to tie-in to existing ActiveRecord models, ala Globalize2, backed by MongoDB rather than an RDBMS. May include UI elements, too.
+
+If you are interested in pure MongoDB localization (your model is MongoMapper::Document, for example), check out http://github.com/ahe/mongo_translation.
 
 == Note on Patches/Pull Requests
  
