@@ -1,0 +1,8 @@
+<% @button_text = t("translations.edit.update") -%>
+
+<% form_for(@translation, :url => { :action => :update,
+@translatable_key => @translated, :id => @translation.locale }) do |f| %>
+
+<%= render :partial => f -%>
+
+<% end %>

@@ -14,6 +14,7 @@ begin
     gem.add_dependency "activerecord", ">= 2.3.5"
     gem.add_development_dependency "shoulda", ">= 2.10.3"
     gem.add_development_dependency "factory_girl", ">= 1.2.3"
+    gem.add_development_dependency "webrat", ">= 0.5.3"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

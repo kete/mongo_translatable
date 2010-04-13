@@ -1,0 +1,15 @@
+<%= render :partial => 'translatable_value', :collection => untranslated_values_with_localized_labels -%>
+
+<%= form.error_messages %>
+
+<%= render :partial => 'translation_field', :collection => @translatable_class.translatable_attributes, :locals => { :form => form } -%>
+
+<p>
+  <%= form.label t('translations.form.locale') %>
+  <%= form.select :locale, available_locales_for_options , :selected => I18n.locale %>
+</p>
+
+<p>
+  <%= form.submit @button_text %>
+</p>
+

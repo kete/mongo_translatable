@@ -73,17 +73,21 @@ module MongoTranslatable #:nodoc:
         const_set("Translation", Class.new).class_eval do
           include MongoMapper::Document
           
-          @@translatable_type = original_class
+          @@translatable_class = original_class
+
+          original_class.translatable_attributes.each do |translatable_attribute|
+            key translatable_attribute, String
+          end
 
           key :locale, String, :required => true
           
           before_save :locale_to_string
 
-          # TODO: add validation for locale unique to translatable_type.as_foreign_key_sym scope
+          # TODO: add validation for locale unique to translatable_class.as_foreign_key_sym scope
           # not implemented in mongo mapper yet
 
           def translatable
-            @@translatable_type.find(self.send(@@translatable_type.as_foreign_key_sym))
+            @@translatable_class.find(self.send(@@translatable_class.as_foreign_key_sym))
           end
           
           protected
@@ -177,7 +181,10 @@ module MongoTranslatable #:nodoc:
       # only the new translation
       def translate(options = {})
         translation_locale = options[:locale].present? ? options[:locale] : I18n.locale
-        
+        should_save = options[:save].present? ? options[:save] : true
+
+        @translation = self.class::Translation.new
+
         # work through self and replace attributes
         # with the passed in translations for defined translatable_attributes
         translated_attributes = Hash.new
@@ -195,8 +202,10 @@ module MongoTranslatable #:nodoc:
           translated_attributes[:locale] = translation_locale
           translated_attributes[self.class.as_foreign_key_sym] = id
 
-          translation = self.class::Translation.create(translated_attributes)
+          @translation = self.class::Translation.new(translated_attributes)
+          @translation.save if should_save
         end
+        @translation
       end
 
       protected

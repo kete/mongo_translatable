@@ -1,0 +1,5 @@
+<% @translations.each do |translation| %>
+<p><%= link_to(translation.locale, { :action => :show, :id =>  translation.locale }) -%></p>
+<% end %>
+
+<p><%= link_to (t("translations.index.new"), { :action => :new }) %></p>
