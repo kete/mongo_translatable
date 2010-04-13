@@ -1,0 +1,14 @@
+en:
+  translations:
+    new:
+      create: "Create"
+    edit:
+      update: "Update"
+    form:
+      locale: "Choose language"
+    index:
+      new: "Translate"
+    show:
+      edit: "Edit"
+      translations: "Translations"
+
