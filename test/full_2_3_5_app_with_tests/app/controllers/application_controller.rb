@@ -7,4 +7,22 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  # borrowed from kete application (http://github.com/kete/kete)
+  # modified to not rely only on mongo_translatable helpers
+  before_filter :set_locale
+  # first take the locale in the url, then the session[:locale],
+  # then the users locale, finally the default site locale
+  def set_locale
+    if params[:locale] && TranslationsHelper.available_locales.include?(params[:locale])
+      I18n.locale = params[:locale]
+    elsif session[:locale] && TranslationsHelper.available_locales.include?(session[:locale])
+      I18n.locale = session[:locale]
+    elsif current_user != :false && TranslationsHelper.available_locales.include?(current_user.locale)
+      I18n.locale = current_user.locale
+    else
+      I18n.locale = I18n.default_locale
+    end
+    session[:locale] = I18n.locale # need to make sure this persists
+  end
 end

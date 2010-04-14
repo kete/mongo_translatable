@@ -26,6 +26,9 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
+  # this allows us to place locale in URL
+  # without messing with the rest of the rails routing mechanism
+  config.gem "routing_filter"
   # config.gem "mongo_translatable"
   config.plugin_locators << TestGemLocator
 

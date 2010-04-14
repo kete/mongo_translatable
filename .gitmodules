@@ -1,0 +1,3 @@
+[submodule "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter"]
+	path = test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter
+	url = git://github.com/svenfuchs/routing-filter.git
