@@ -24,9 +24,7 @@ end
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+  puts "This gem includes a full rails app for running tests (and staging development not yet extracted to the gem proper). Run tests there by changing to test/full_[RAIlS_VERSION_#_with_underscores]_app_with_tests and doing 'rake test'."
 end
 
 begin

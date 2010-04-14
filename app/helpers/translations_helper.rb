@@ -10,7 +10,7 @@ module TranslationsHelper
   # returns an array with a hash per attribute where the key is the label (internationalized)
   # and the value for the attribute
   mattr_accessor :available_locales
-  @@available_locales ||= YAML.load(IO.read('../../config/locales.yml'))
+  @@available_locales ||= YAML.load(IO.read(File.join(RAILS_ROOT, 'config/locales.yml')))
 
   %w{untranslated translated}.each do |term|
     define_method(term + '_values_with_localized_labels') do

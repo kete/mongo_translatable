@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 require "active_record"
 require "mongo_mapper"
+
+# load our locales
+I18n.load_path += Dir[ File.join(File.dirname(__FILE__), '..', 'config', 'locales', '*.{rb,yml}') ]
+
 module MongoTranslatable #:nodoc:
   # MongoTranslatable is for taking advantage of MongoDB for storing translations
   # of ActiveRecord models. Here is how it works in practice:

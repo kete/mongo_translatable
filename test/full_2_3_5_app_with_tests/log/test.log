@@ -1,0 +1,1337 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (9.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20100407010602)
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "label" varchar(255) NOT NULL, "value" varchar(255), "locale" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100407010602')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("items")[0m
+  [4;36;1mItem Create (15.7ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 02:11:42', '2010-04-14 02:11:42', NULL, 'en')[0m
+  [4;35;1mItem Load (0.4ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.2ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 02:11:42', '2010-04-14 02:11:42', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.2ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 02:11:42', '2010-04-14 02:11:42', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 02:11:42', '2010-04-14 02:11:42', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label9', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label10', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label11', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label12', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label13', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label14', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label15', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label16', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label17', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label18', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label19', '2010-04-14 02:11:42', '2010-04-14 02:11:42', 'a value', 'en')[0m
+  [4;36;1mItem Load (2.1ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."value" = 'a value') [0m
+  [4;35;1mItem Load (1.0ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label20', '2010-04-14 02:11:42', '2010-04-14 02:11:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label21', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label22', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label23', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label24', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Create (0.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label25', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label26', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label27', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label28', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label29', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label30', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label31', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label32', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label33', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label34', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Load (0.7ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" IN (1,2,3,4,5,6,7,8,9,10)) [0m
+  [4;35;1mItem Load (1.1ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (1.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.8ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label35', '2010-04-14 02:11:43', '2010-04-14 02:11:43', 'a value', 'en')[0m
+  [4;35;1mItem Load (0.4ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."value" = 'a value') LIMIT 1[0m
+  [4;36;1mItem Load (0.4ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:11:43', '2010-04-14 02:11:43', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 02:11:45', '2010-04-14 02:11:45', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 02:11:45', '2010-04-14 02:11:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 02:11:45', '2010-04-14 02:11:45', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 02:11:45', '2010-04-14 02:11:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 02:11:45', '2010-04-14 02:11:45', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 02:11:45', '2010-04-14 02:11:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 02:11:45', '2010-04-14 02:11:45', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 02:11:45', '2010-04-14 02:11:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Load (0.4ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.2ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Load (0.9ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label9', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label10', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label11', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label12', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label13', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label14', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label15', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label16', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label17', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label18', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label19', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;36;1mItem Load (1.0ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."value" = 'a value') [0m
+  [4;35;1mItem Load (1.0ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.2ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label20', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label21', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label22', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label23', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label24', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label25', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label26', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label27', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label28', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label29', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label30', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label31', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label32', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label33', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label34', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Load (0.7ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" IN (1,2,3,4,5,6,7,8,9,10)) [0m
+  [4;35;1mItem Load (0.9ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.4ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label35', '2010-04-14 02:18:52', '2010-04-14 02:18:52', 'a value', 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."value" = 'a value') LIMIT 1[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 02:18:52', '2010-04-14 02:18:52', NULL, 'en')[0m
+  [4;36;1mItem Load (0.5ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mItem Create (0.8ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 02:18:54', '2010-04-14 02:18:54', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 02:18:54', '2010-04-14 02:18:54', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 02:18:54', '2010-04-14 02:18:54', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 02:18:54', '2010-04-14 02:18:54', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 02:18:54', '2010-04-14 02:18:54', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 02:18:54', '2010-04-14 02:18:54', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 02:18:54', '2010-04-14 02:18:54', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.4ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 02:18:54', '2010-04-14 02:18:54', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:00:44', '2010-04-14 03:00:44', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;36;1mItem Load (0.1ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:00:44', '2010-04-14 03:00:44', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:00:44', '2010-04-14 03:00:44', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:00:44', '2010-04-14 03:00:44', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label9', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label10', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label11', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label12', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label13', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label14', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label15', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label16', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label17', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label18', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label19', '2010-04-14 03:00:44', '2010-04-14 03:00:44', 'a value', 'en')[0m
+  [4;36;1mItem Load (1.3ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."value" = 'a value') [0m
+  [4;35;1mItem Load (1.0ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label20', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label21', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label22', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label23', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label24', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label25', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label26', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label27', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label28', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label29', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label30', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label31', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label32', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label33', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Create (0.7ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label34', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.7ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" IN (1,2,3,4,5,6,7,8,9,10)) [0m
+  [4;35;1mItem Load (0.9ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.4ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label35', '2010-04-14 03:00:45', '2010-04-14 03:00:45', 'a value', 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."value" = 'a value') LIMIT 1[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.5ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:00:45', '2010-04-14 03:00:45', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:00:47', '2010-04-14 03:00:47', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:00:47', '2010-04-14 03:00:47', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:00:47', '2010-04-14 03:00:47', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:00:47', '2010-04-14 03:00:47', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:00:47', '2010-04-14 03:00:47', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:00:47', '2010-04-14 03:00:47', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:00:47', '2010-04-14 03:00:47', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:00:47', '2010-04-14 03:00:47', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;36;1mItem Load (0.1ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (1.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label9', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label10', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label11', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label12', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label13', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.8ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label14', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label15', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;36;1mItem Create (1.0ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label16', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label17', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label18', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label19', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;36;1mItem Load (1.1ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."value" = 'a value') [0m
+  [4;35;1mItem Load (1.0ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.6ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label20', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label21', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label22', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label23', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label24', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label25', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label26', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label27', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label28', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label29', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label30', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label31', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label32', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label33', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label34', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Load (0.7ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" IN (1,2,3,4,5,6,7,8,9,10)) [0m
+  [4;35;1mItem Load (0.9ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label35', '2010-04-14 03:03:55', '2010-04-14 03:03:55', 'a value', 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."value" = 'a value') LIMIT 1[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:03:55', '2010-04-14 03:03:55', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:03:57', '2010-04-14 03:03:57', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:03:57', '2010-04-14 03:03:57', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:03:57', '2010-04-14 03:03:57', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:03:57', '2010-04-14 03:03:57', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:03:57', '2010-04-14 03:03:57', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:03:57', '2010-04-14 03:03:57', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:03:57', '2010-04-14 03:03:57', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:03:57', '2010-04-14 03:03:57', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (23.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:53:58', '2010-04-14 03:53:58', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.2ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:53:58', '2010-04-14 03:53:58', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:53:58', '2010-04-14 03:53:58', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:53:58', '2010-04-14 03:53:58', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label9', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label10', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label11', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label12', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label13', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label14', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label15', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label16', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label17', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label18', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label19', '2010-04-14 03:53:58', '2010-04-14 03:53:58', 'a value', 'en')[0m
+  [4;36;1mItem Load (1.1ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."value" = 'a value') [0m
+  [4;35;1mItem Load (1.0ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.7ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label20', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label21', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label22', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label23', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label24', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label25', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label26', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label27', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label28', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label29', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label30', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label31', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label32', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label33', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label34', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Load (0.7ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" IN (1,2,3,4,5,6,7,8,9,10)) [0m
+  [4;35;1mItem Load (0.9ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.5ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;36;1mItem Load (0.4ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:01', '2010-04-14 03:54:01', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.5ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:02', '2010-04-14 03:54:02', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label35', '2010-04-14 03:54:02', '2010-04-14 03:54:02', 'a value', 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."value" = 'a value') LIMIT 1[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:02', '2010-04-14 03:54:02', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:02', '2010-04-14 03:54:02', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:02', '2010-04-14 03:54:02', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:02', '2010-04-14 03:54:02', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.2ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:02', '2010-04-14 03:54:02', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:02', '2010-04-14 03:54:02', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:54:02', '2010-04-14 03:54:02', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:54:16', '2010-04-14 03:54:16', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:54:16', '2010-04-14 03:54:16', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:54:16', '2010-04-14 03:54:16', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (5.5ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (30.5ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:54:16', '2010-04-14 03:54:16', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.2ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:54:16', '2010-04-14 03:54:16', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:54:16', '2010-04-14 03:54:16', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:54:16', '2010-04-14 03:54:16', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:54:16', '2010-04-14 03:54:16', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:56:40', '2010-04-14 03:56:40', NULL, 'en')[0m
+  [4;35;1mItem Load (0.4ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:56:40', '2010-04-14 03:56:40', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:56:40', '2010-04-14 03:56:40', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:56:40', '2010-04-14 03:56:40', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label9', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label10', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label11', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label12', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label13', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label14', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label15', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label16', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label17', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label18', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label19', '2010-04-14 03:56:40', '2010-04-14 03:56:40', 'a value', 'en')[0m
+  [4;36;1mItem Load (1.4ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."value" = 'a value') [0m
+  [4;35;1mItem Load (1.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.3ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label20', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label21', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label22', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label23', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label24', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label25', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label26', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label27', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label28', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label29', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label30', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label31', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label32', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label33', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label34', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Load (0.8ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" IN (1,2,3,4,5,6,7,8,9,10)) [0m
+  [4;35;1mItem Load (0.9ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label35', '2010-04-14 03:56:42', '2010-04-14 03:56:42', 'a value', 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."value" = 'a value') LIMIT 1[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.5ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Load (0.8ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;35;1mItem Load (0.5ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 03:56:42', '2010-04-14 03:56:42', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:56:44', '2010-04-14 03:56:44', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (4.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:56:44', '2010-04-14 03:56:44', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:56:44', '2010-04-14 03:56:44', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:56:44', '2010-04-14 03:56:44', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:56:44', '2010-04-14 03:56:44', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:56:44', '2010-04-14 03:56:44', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:56:44', '2010-04-14 03:56:44', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:56:44', '2010-04-14 03:56:44', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.3ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 03:58:47', '2010-04-14 03:58:47', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 03:58:47', '2010-04-14 03:58:47', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 03:58:47', '2010-04-14 03:58:47', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 03:58:47', '2010-04-14 03:58:47', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 03:58:47', '2010-04-14 03:58:47', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 03:58:47', '2010-04-14 03:58:47', NULL, 'en')[0m
+  [4;36;1mItem Load (0.7ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 03:58:47', '2010-04-14 03:58:47', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 03:58:47', '2010-04-14 03:58:47', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 04:00:25', '2010-04-14 04:00:25', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 04:00:25', '2010-04-14 04:00:25', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 04:00:25', '2010-04-14 04:00:25', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (1.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 04:00:25', '2010-04-14 04:00:25', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 04:00:25', '2010-04-14 04:00:25', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.2ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 04:00:25', '2010-04-14 04:00:25', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.9ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 04:00:25', '2010-04-14 04:00:25', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 04:00:25', '2010-04-14 04:00:25', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 04:02:08', '2010-04-14 04:02:08', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 04:02:08', '2010-04-14 04:02:08', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 04:02:08', '2010-04-14 04:02:08', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 04:02:08', '2010-04-14 04:02:08', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 04:02:08', '2010-04-14 04:02:08', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 04:02:08', '2010-04-14 04:02:08', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 04:02:08', '2010-04-14 04:02:08', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.5ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 04:02:08', '2010-04-14 04:02:08', NULL, 'en')[0m
+  [4;36;1mItem Load (0.5ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;36;1mItem Load (0.1ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.2ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.5ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (6.6ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label9', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label10', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label11', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label12', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label13', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label14', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label15', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label16', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label17', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label18', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label19', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;36;1mItem Load (1.1ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."value" = 'a value') [0m
+  [4;35;1mItem Load (1.0ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label20', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label21', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label22', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Create (0.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label23', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label24', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Create (0.6ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label25', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label26', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label27', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label28', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label29', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label30', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Create (1.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label31', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label32', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label33', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Create (0.7ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label34', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Load (0.8ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" IN (1,2,3,4,5,6,7,8,9,10)) [0m
+  [4;35;1mItem Load (0.9ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label35', '2010-04-14 04:02:17', '2010-04-14 04:02:17', 'a value', 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."value" = 'a value') LIMIT 1[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.5ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (1.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:02:17', '2010-04-14 04:02:17', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 04:05:04', '2010-04-14 04:05:04', NULL, 'en')[0m
+
+
+Processing TranslationsController#create (for 0.0.0.0 at 2010-04-14 16:05:04) [POST]
+  Parameters: {"translation"=>{"label"=>"une étiquette", "locale"=>"fr"}, "item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Redirected to http://test.host/items/1/translations/fr
+Completed in 5ms (DB: 1) | 302 Found [http://test.host/items/1/translations?translation%5Blabel%5D=une+%C3%A9tiquette&translation%5Blocale%5D=fr]
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 04:05:04', '2010-04-14 04:05:04', NULL, 'en')[0m
+
+
+Processing TranslationsController#index (for 0.0.0.0 at 2010-04-14 16:05:04) [GET]
+  Parameters: {"item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/index
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://test.host/items/1/translations]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 04:05:04', '2010-04-14 04:05:04', NULL, 'en')[0m
+
+
+Processing TranslationsController#new (for 0.0.0.0 at 2010-04-14 16:05:04) [GET]
+  Parameters: {"item_id"=>"1"}
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/new
+Rendered translations/_translatable_value (0.5ms)
+Rendered translations/_translation_field (1.5ms)
+Rendered translations/_form (5.3ms)
+Completed in 9ms (View: 8, DB: 1) | 200 OK [http://test.host/items/1/translations/new]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 04:05:04', '2010-04-14 04:05:04', NULL, 'en')[0m
+
+
+Processing TranslationsController#destroy (for 0.0.0.0 at 2010-04-14 16:05:04) [DELETE]
+  Parameters: {"id"=>"fr", "item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Redirected to http://test.host/items/1/translations
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/items/1/translations/fr]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 04:05:04', '2010-04-14 04:05:04', NULL, 'en')[0m
+
+
+Processing TranslationsController#edit (for 0.0.0.0 at 2010-04-14 16:05:04) [GET]
+  Parameters: {"id"=>"fr", "item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/edit
+Rendered translations/_translatable_value (0.1ms)
+Rendered translations/_translation_field (1.0ms)
+Rendered translations/_form (2.7ms)
+Completed in 8ms (View: 5, DB: 1) | 200 OK [http://test.host/items/1/translations/fr/edit]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 04:05:04', '2010-04-14 04:05:04', NULL, 'en')[0m
+
+
+Processing TranslationsController#index (for 0.0.0.0 at 2010-04-14 16:05:04) [GET]
+  Parameters: {"item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/index
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://test.host/items/1/translations]
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (83.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 04:05:04', '2010-04-14 04:05:04', NULL, 'en')[0m
+
+
+Processing TranslationsController#show (for 0.0.0.0 at 2010-04-14 16:05:04) [GET]
+  Parameters: {"id"=>"fr", "item_id"=>"1"}
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/show
+Rendered translations/_translatable_value (0.1ms)
+Completed in 4ms (View: 2, DB: 84) | 200 OK [http://test.host/items/1/translations/fr]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 04:05:04', '2010-04-14 04:05:04', NULL, 'en')[0m
+
+
+Processing TranslationsController#update (for 0.0.0.0 at 2010-04-14 16:05:04) [PUT]
+  Parameters: {"id"=>"fr", "translation"=>{"label"=>"oui oui"}, "item_id"=>"1"}
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Redirected to http://test.host/items/1/translations/fr
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/items/1/translations/fr?translation%5Blabel%5D=oui+oui]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;36;1mItem Load (0.1ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Load (0.7ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label9', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label10', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label11', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label12', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label13', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label14', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label15', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label16', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label17', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label18', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label19', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;36;1mItem Load (1.0ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."value" = 'a value') [0m
+  [4;35;1mItem Load (1.0ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label20', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label21', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label22', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label23', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label24', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Create (0.2ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label25', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label26', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label27', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label28', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label29', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label30', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label31', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label32', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label33', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Create (0.1ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label34', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Load (0.7ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" IN (1,2,3,4,5,6,7,8,9,10)) [0m
+  [4;35;1mItem Load (0.9ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 3[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 4[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 5[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 6[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 7[0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 8[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 9[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 10[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 11[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 12[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 13[0m
+  [4;35;1mItem Destroy (0.0ms)[0m   [0mDELETE FROM "items" WHERE "id" = 14[0m
+  [4;36;1mItem Destroy (0.0ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 15[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Create (0.1ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label35', '2010-04-14 04:10:21', '2010-04-14 04:10:21', 'a value', 'en')[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."value" = 'a value') LIMIT 1[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 2[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" [0m
+  [4;36;1mItem Destroy (0.1ms)[0m   [0;1mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;35;1mItem Create (0.6ms)[0m   [0mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label', '2010-04-14 04:10:21', '2010-04-14 04:10:21', NULL, 'en')[0m
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label1', '2010-04-14 04:10:23', '2010-04-14 04:10:23', NULL, 'en')[0m
+
+
+Processing TranslationsController#create (for 0.0.0.0 at 2010-04-14 16:10:23) [POST]
+  Parameters: {"translation"=>{"label"=>"une étiquette", "locale"=>"fr"}, "item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Redirected to http://test.host/items/1/translations/fr
+Completed in 5ms (DB: 1) | 302 Found [http://test.host/items/1/translations?translation%5Blabel%5D=une+%C3%A9tiquette&translation%5Blocale%5D=fr]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label2', '2010-04-14 04:10:23', '2010-04-14 04:10:23', NULL, 'en')[0m
+
+
+Processing TranslationsController#index (for 0.0.0.0 at 2010-04-14 16:10:23) [GET]
+  Parameters: {"item_id"=>"1"}
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/index
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://test.host/items/1/translations]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.3ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label3', '2010-04-14 04:10:23', '2010-04-14 04:10:23', NULL, 'en')[0m
+
+
+Processing TranslationsController#new (for 0.0.0.0 at 2010-04-14 16:10:23) [GET]
+  Parameters: {"item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/new
+Rendered translations/_translatable_value (0.5ms)
+Rendered translations/_translation_field (2.0ms)
+Rendered translations/_form (5.5ms)
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://test.host/items/1/translations/new]
+  [4;36;1mItem Load (0.5ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label4', '2010-04-14 04:10:23', '2010-04-14 04:10:23', NULL, 'en')[0m
+
+
+Processing TranslationsController#destroy (for 0.0.0.0 at 2010-04-14 16:10:23) [DELETE]
+  Parameters: {"id"=>"fr", "item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Redirected to http://test.host/items/1/translations
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/items/1/translations/fr]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label5', '2010-04-14 04:10:23', '2010-04-14 04:10:23', NULL, 'en')[0m
+
+
+Processing TranslationsController#edit (for 0.0.0.0 at 2010-04-14 16:10:23) [GET]
+  Parameters: {"id"=>"fr", "item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/edit
+Rendered translations/_translatable_value (0.1ms)
+Rendered translations/_translation_field (1.1ms)
+Rendered translations/_form (3.0ms)
+Completed in 9ms (View: 6, DB: 1) | 200 OK [http://test.host/items/1/translations/fr/edit]
+  [4;36;1mItem Load (0.3ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label6', '2010-04-14 04:10:23', '2010-04-14 04:10:23', NULL, 'en')[0m
+
+
+Processing TranslationsController#index (for 0.0.0.0 at 2010-04-14 16:10:23) [GET]
+  Parameters: {"item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/index
+Completed in 3ms (View: 1, DB: 1) | 200 OK [http://test.host/items/1/translations]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.3ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label7', '2010-04-14 04:10:23', '2010-04-14 04:10:23', NULL, 'en')[0m
+
+
+Processing TranslationsController#show (for 0.0.0.0 at 2010-04-14 16:10:24) [GET]
+  Parameters: {"id"=>"fr", "item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Rendering translations/show
+Rendered translations/_translatable_value (0.1ms)
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://test.host/items/1/translations/fr]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m
+  [4;36;1mItem Create (0.4ms)[0m   [0;1mINSERT INTO "items" ("label", "created_at", "updated_at", "value", "locale") VALUES('a label8', '2010-04-14 04:10:24', '2010-04-14 04:10:24', NULL, 'en')[0m
+
+
+Processing TranslationsController#update (for 0.0.0.0 at 2010-04-14 16:10:24) [PUT]
+  Parameters: {"id"=>"fr", "translation"=>{"label"=>"oui oui"}, "item_id"=>"1"}
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM "items" WHERE ("items"."id" = 1) [0m
+Redirected to http://test.host/items/1/translations/fr
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/items/1/translations/fr?translation%5Blabel%5D=oui+oui]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM "items" [0m
+  [4;35;1mItem Destroy (0.1ms)[0m   [0mDELETE FROM "items" WHERE "id" = 1[0m

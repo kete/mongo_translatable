@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-require 'helper'
+require 'test_helper'
 
-class TestTranslationsHelper < ActionView::TestCase
+class TranslationsHelperTest < ActionView::TestCase
   I18n.backend.store_translations :'en', {
     :items => {
       :form => {
@@ -17,7 +17,11 @@ class TestTranslationsHelper < ActionView::TestCase
     end
 
     should "have avalailable_locales_for_options" do
-      locale_options = [['English', 'en']]
+      locale_options = [["Français", "fr"],
+                        ["中文", "zh"],
+                        ["Suomi", "fi"],
+                        ["العربية", "ar"],
+                        ["English", "en"]]
       assert_equal locale_options, available_locales_for_options
     end
 
