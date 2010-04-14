@@ -28,7 +28,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   # this allows us to place locale in URL
   # without messing with the rest of the rails routing mechanism
-  config.gem "routing_filter"
+  # config.gem "routing_filter" # using plugin for the moment
   # config.gem "mongo_translatable"
   config.plugin_locators << TestGemLocator
 
