@@ -18,8 +18,6 @@ class ApplicationController < ActionController::Base
       I18n.locale = params[:locale]
     elsif session[:locale] && TranslationsHelper.available_locales.include?(session[:locale])
       I18n.locale = session[:locale]
-    elsif current_user != :false && TranslationsHelper.available_locales.include?(current_user.locale)
-      I18n.locale = current_user.locale
     else
       I18n.locale = I18n.default_locale
     end
