@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
@@ -11,6 +12,12 @@ require File.expand_path(File.dirname(__FILE__) + "/factories")
 Webrat.configure do |config|
   config.mode = :rails
 end
+
+LOCALE_LABELS = { :en => "a label",
+  :ar => "تسمية",
+  :fi => "etiketissä", 
+  :fr => "une étiquette",
+  :zh => "標籤"}
 
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -68,3 +75,12 @@ class ActiveSupport::TestCase
 end
 
 MongoMapper.database = 'test'
+
+def translate_item_for_locales(item, locales)
+  locales = [locales] unless locales.is_a?(Array)
+  locales.each do |locale|
+    I18n.locale = locale
+    item.translate(:label => LOCALE_LABELS[locale])
+  end
+end
+

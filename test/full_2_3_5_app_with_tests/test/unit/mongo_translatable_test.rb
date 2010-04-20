@@ -2,18 +2,13 @@
 require 'test_helper'
 
 class MongodbTranslatableTest < ActiveSupport::TestCase
-  LOCALE_LABELS = { :en => "a label",
-    :ar => "تسمية",
-    :fi => "etiketissä", 
-    :fr => "une étiquette",
-    :zh => "標籤"}
-  
   context "A translation" do
     setup do
       @item = Factory.create(:item)
+      I18n.locale = I18n.default_locale
       item_hash = Hash.new
       item_hash[:label] = @item.attributes['label']
-      item_hash[:locale] = I18n.locale
+      item_hash[:locale] = :fr
       item_hash[@item.class.as_foreign_key_sym] = @item.id
       @translation = @item.class::Translation.create(item_hash)
     end
@@ -53,6 +48,13 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       # arabic
       I18n.locale = :ar
       @item.translate
+      assert @item.translations.count == 0
+    end
+
+    should "not create translation if item's original_locale is same as translation locale" do
+      # arabic
+      I18n.locale = :en
+      @item.translate(:label => LOCALE_LABELS[:en])
       assert @item.translations.count == 0
     end
 
@@ -100,6 +102,7 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       assert_equal @item.label, LOCALE_LABELS[:fi]
     end
 
+
     teardown do
       I18n.locale = @original_locale
     end
@@ -135,14 +138,36 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
     end
   end
   
-  private
-  def translate_item_for_locales(item, locales)
-    locales = [locales] unless locales.is_a?(Array)
-    locales.each do |locale|
-      I18n.locale = locale
-      item.translate(:label => LOCALE_LABELS[locale])
+  context "translations for an item" do 
+    setup do
+      I18n.locale = I18n.default_locale
+      @item = Factory.create(:item)
+      @translation_keys = LOCALE_LABELS.keys - [:en]
+      translate_item_for_locales(@item, @translation_keys)
+    end
+
+    should "be retrievable from translations method" do 
+      assert_equal @translation_keys.size, @item.translations.size
+    end
+
+    should "hae just locales be retrievable from translations_locales method" do 
+      # these should be partial objects and not have any values for other attributes
+      locales_only = @item.translations_locales.select { |translation| translation.label.nil? }
+      
+      assert_equal @translation_keys, locales_only.collect { |translation| translation.locale.to_sym }
+    end
+
+    should "have translation locales plus original local be retrievable as available_in_these_locales" do 
+      assert_equal [:en] + @translation_keys, @item.available_in_these_locales.collect { |locale| locale.to_sym }
+    end
+
+    should "have needed_in_these_locales method that returns locales that haven't been translated yet" do 
+      Item::Translation.first(:item_id => @item.id, :locale => "zh").destroy
+      assert_equal [:zh], @item.needed_in_these_locales.collect { |locale| locale.to_sym }
     end
   end
+
+  private
 
   # see many_tests for what it expects
   def many_setup(item_spec = nil)

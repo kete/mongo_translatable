@@ -31,7 +31,8 @@ class TranslationsController < ApplicationController
   def new
     @translation = @translatable.class::Translation.new
 
-    # TODO: need to populate form with @translatable.translatable_attributes
+    @translation.locale = params[:to_locale].present? ? params[:to_locale] : I18n.locale.to_s
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @translation }
@@ -40,21 +41,22 @@ class TranslationsController < ApplicationController
 
   # GET /translations/1/edit
   def edit
-    # TODO: override route for show to have param name of locale
     @translation = @translated.translation_for(params[:id]) || @translatable_class::Translation.find(params[:id])
   end
 
   # POST /translations
   # POST /translations.xml
   def create
-    @translation = @translatable.translate(params[:translation].merge({ :save => false }))
+    translation_params = params[:translation] || params[@translatable_params_name + '_translation']
+    translation_params[:save] = false
+    @translation = @translatable.translate(translation_params)
 
     respond_to do |format|
       if @translation.save
         flash[:notice] = 'Translation was successfully created.'
-        format.html { redirect_to(url_for(:id => @translation.locale,
-                                          :action => 'show',
-                                          @translatable_key => @translatable)) }
+        # we redirect to translated object in the new translated version
+        # assumes controller name is tableized version of class
+        format.html { redirect_to url_for_translated(:locale => @translation.locale) }
         # TODO: adjust :location accordingly for being a nested route
         format.xml  { render :xml => @translation, :status => :created, :location => @translation }
       else
@@ -68,9 +70,10 @@ class TranslationsController < ApplicationController
   # PUT /translations/1.xml
   def update
     respond_to do |format|
-      if @translation.update_attributes(params[:translation])
+      translation_params = params[:translation] || params[@translatable_params_name + '_translation']
+      if @translation.update_attributes(translation_params)
         flash[:notice] = 'Translation was successfully updated.'
-        format.html { redirect_to(url_for(:action => 'show', :id => @translation.locale, @translatable_key => @translated)) }
+        format.html { redirect_to url_for_translated(:locale => @translation.locale) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -85,7 +88,7 @@ class TranslationsController < ApplicationController
     @translation.destroy
 
     respond_to do |format|
-      format.html { redirect_to(url_for(:action => 'index', @translatable_key => @translated)) }
+      format.html { redirect_to url_for_translated }
       format.xml  { head :ok }
 
     end
@@ -122,13 +125,10 @@ class TranslationsController < ApplicationController
         if request.path.split('/').include?(key_singular.pluralize)
           @translatable_class = key_singular.camelize.constantize
           @translatable_key = key.to_sym
+          @translatable_params_name = key_singular
           break
         end
       end
     end
   end
 end
-
-
-
-

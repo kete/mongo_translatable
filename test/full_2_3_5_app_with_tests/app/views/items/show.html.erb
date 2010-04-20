@@ -1,3 +1,10 @@
+<p>Available in:
+  <%= available_in_locales_for(@item) %>
+</p>
+<p>Needs translating to:
+  <%= needed_in_locales_for(@item) %>
+</p>
+
 <p>
   <b>Label:</b>
   <%=h @item.label %>

@@ -23,7 +23,7 @@ class TranslationsControllerTest < ActionController::TestCase
         post :create, :translation => { :label => 'une étiquette', :locale => 'fr'}, :item_id => 1
       end
 
-      assert_redirected_to :action => 'show', :id => assigns(:translation).locale, :item_id => 1
+      assert_redirected_to :action => 'show', :locale => assigns(:translation).locale, :id => 1, :controller => 'items'
     end
 
     context "when there is an existing translation" do 
@@ -49,7 +49,7 @@ class TranslationsControllerTest < ActionController::TestCase
 
       should "update translation" do
         put :update, :id => @translation_1.locale, :translation => { :label => "oui oui" }, :item_id => 1
-        assert_redirected_to :action => 'show', :id => assigns(:translation).locale, :item_id => 1
+        assert_redirected_to :action => 'show', :locale => assigns(:translation).locale, :id => 1, :controller => 'items'
       end
 
       should "destroy translation" do
@@ -57,7 +57,7 @@ class TranslationsControllerTest < ActionController::TestCase
           delete :destroy, :id => @translation_1.locale, :item_id => 1
         end
 
-        assert_redirected_to :action => :index, :item_id => 1
+        assert_redirected_to :action => :show, :id => 1, :controller => 'items'
       end
     end
   end

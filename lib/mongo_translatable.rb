@@ -2,6 +2,8 @@
 require "active_record"
 require "mongo_mapper"
 
+ActionController::Base.send :include, TranslationsControllerHelpers
+
 # load our locales
 I18n.load_path += Dir[ File.join(File.dirname(__FILE__), '..', 'config', 'locales', '*.{rb,yml}') ]
 
@@ -166,12 +168,23 @@ module MongoTranslatable #:nodoc:
       end
     end
     module InstanceMethods
-      # TODO: in an ActiveRecord backed verions
-      # this functionality would have to be recreated
-      # many :translations
-
       def translations
         self.class::Translation.all(self.class.as_foreign_key_sym => id)
+      end
+
+      # sometimes all you need is only the locales of translations
+      def translations_locales
+        self.class::Translation.all(self.class.as_foreign_key_sym => id, :select => 'locale')
+      end
+
+      # get a list of locales as syms for all translations locales, plus object's original locale
+      def available_in_these_locales
+        [original_locale] + translations_locales.collect { |translation| translation.locale}
+      end
+
+      # list of locales that haven't been translated yet
+      def needed_in_these_locales
+        TranslationsHelper::available_locales.keys - available_in_these_locales
       end
 
       # assumes unique locale
@@ -183,32 +196,43 @@ module MongoTranslatable #:nodoc:
       # with either passed in options
       # note that we don't save the changes to self
       # only the new translation
+      # will return nothing if translate to locale
+      # is the same as the object to translate's original locale
       def translate(options = {})
         translation_locale = options[:locale].present? ? options[:locale] : I18n.locale
         should_save = options[:save].present? ? options[:save] : true
 
         @translation = self.class::Translation.new
 
-        # work through self and replace attributes
-        # with the passed in translations for defined translatable_attributes
-        translated_attributes = Hash.new
-        self.class.translatable_attributes.each do |translated_attribute|
-          translated_value = options[translated_attribute]
+        if translation_locale.to_s == original_locale.to_s
+          # TODO: locale's emptiness is the reported error
+          # when this is triggered, figure out why
+          # serving its purpose though to prevent a translation to be added for original_locale
+          @translation.errors.replace(:locale, "Cannot add translation the same as the original locale.")
+        else
+          # work through self and replace attributes
+          # with the passed in translations for defined translatable_attributes
+          translated_attributes = Hash.new
+          self.class.translatable_attributes.each do |translated_attribute|
+            translated_value = options[translated_attribute]
 
-          next unless translated_value
+            next unless translated_value
 
-          translated_attributes[translated_attribute] = translated_value
+            translated_attributes[translated_attribute] = translated_value
+          end
+
+          # only create a translation if actual translation was done
+          # if changed?
+          unless translated_attributes.blank?
+            translated_attributes[:locale] = translation_locale
+            # save original locale
+            translated_attributes[:translatable_locale] = locale
+            translated_attributes[self.class.as_foreign_key_sym] = id
+
+            @translation = self.class::Translation.new(translated_attributes)
+          end
         end
-
-        # only create a translation if actual translation was done
-        # if changed?
-        unless translated_attributes.blank?
-          translated_attributes[:locale] = translation_locale
-          translated_attributes[self.class.as_foreign_key_sym] = id
-
-          @translation = self.class::Translation.new(translated_attributes)
-          @translation.save if should_save
-        end
+        @translation.save if should_save
         @translation
       end
 
@@ -218,6 +242,7 @@ module MongoTranslatable #:nodoc:
       def set_locale_if_necessary
         self.locale = self.locale.present? ? self.locale : I18n.locale
         self.locale = self.locale.to_s
+        self.original_locale = self.locale
       end
     end
   end
