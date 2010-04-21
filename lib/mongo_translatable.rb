@@ -72,6 +72,7 @@ module MongoTranslatable #:nodoc:
         self.as_foreign_key_sym = self.name.foreign_key.to_sym
 
         before_save :set_locale_if_necessary
+        before_destroy :destroy_translations
 
         original_class = self
 
@@ -243,6 +244,11 @@ module MongoTranslatable #:nodoc:
         self.locale = self.locale.present? ? self.locale : I18n.locale
         self.locale = self.locale.to_s
         self.original_locale = self.locale
+      end
+
+      def destroy_translations
+        translations = self.class::Translation.all(self.class.as_foreign_key_sym => id)
+        translations.each { |translation| translation.destroy }
       end
     end
   end

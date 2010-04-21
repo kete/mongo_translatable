@@ -102,6 +102,23 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       assert_equal @item.label, LOCALE_LABELS[:fi]
     end
 
+    should "after creating translations, if the item is destroyed, the translations are destroyed" do 
+      # add a couple translations
+      translate_item_for_locales(@item, [:fi, :fr])
+      
+      translations_ids = @item.translations.collect { |translation| translation.id }
+      
+      @item.destroy
+      
+      remaining_translations = Item::Translation.find(translations_ids)
+      
+      assert_equal 0, remaining_translations.size
+    end
+
+    should "when the item is destroyed, when it has no translations, it should succeed in being destroyed" do 
+      assert_equal 0, @item.translations.size
+      assert @item.destroy
+    end
 
     teardown do
       I18n.locale = @original_locale
