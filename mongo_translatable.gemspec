@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Walter McGinnis"]
-  s.date = %q{2010-04-14}
+  s.date = %q{2010-04-22}
   s.description = %q{Rails specific I18n model localization meant to tie-in to existing ActiveRecord models, ala Globalize2, backed by MongoDB rather than an RDBMS. May include UI elements, too.}
   s.email = %q{walter@katipo.co.nz}
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     ".gitmodules",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
@@ -34,6 +35,8 @@ Gem::Specification.new do |s|
      "app/views/translations/show.html.erb",
      "config/locales/en.yml",
      "lib/mongo_translatable.rb",
+     "lib/translatables_helper.rb",
+     "lib/translations_controller_helpers.rb",
      "mongo_translatable.gemspec",
      "rails/init.rb",
      "test/full_2_3_5_app_with_tests/.gitignore",
@@ -62,14 +65,14 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/config/initializers/session_store.rb",
      "test/full_2_3_5_app_with_tests/config/locales.yml",
      "test/full_2_3_5_app_with_tests/config/locales/en.yml",
+     "test/full_2_3_5_app_with_tests/config/locales/fr.yml",
+     "test/full_2_3_5_app_with_tests/config/locales/zh.yml",
      "test/full_2_3_5_app_with_tests/config/routes.rb",
      "test/full_2_3_5_app_with_tests/db/migrate/20100407010602_create_items.rb",
      "test/full_2_3_5_app_with_tests/db/seeds.rb",
      "test/full_2_3_5_app_with_tests/doc/README_FOR_APP",
-     "test/full_2_3_5_app_with_tests/log/development.log",
      "test/full_2_3_5_app_with_tests/log/production.log",
      "test/full_2_3_5_app_with_tests/log/server.log",
-     "test/full_2_3_5_app_with_tests/log/test.log",
      "test/full_2_3_5_app_with_tests/public/404.html",
      "test/full_2_3_5_app_with_tests/public/422.html",
      "test/full_2_3_5_app_with_tests/public/500.html",
@@ -95,11 +98,12 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/script/server",
      "test/full_2_3_5_app_with_tests/test/factories.rb",
      "test/full_2_3_5_app_with_tests/test/functional/translations_controller_test.rb",
+     "test/full_2_3_5_app_with_tests/test/integration/translation_test.rb",
      "test/full_2_3_5_app_with_tests/test/performance/browsing_test.rb",
      "test/full_2_3_5_app_with_tests/test/test_helper.rb",
+     "test/full_2_3_5_app_with_tests/test/unit/helpers/translatables_helper_test.rb",
      "test/full_2_3_5_app_with_tests/test/unit/helpers/translations_helper_test.rb",
-     "test/full_2_3_5_app_with_tests/test/unit/mongo_translatable_test.rb",
-     "test/helper.rb"
+     "test/full_2_3_5_app_with_tests/test/unit/mongo_translatable_test.rb"
   ]
   s.homepage = %q{http://github.com/kete/mongo_translatable}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -128,11 +132,25 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/db/seeds.rb",
      "test/full_2_3_5_app_with_tests/test/factories.rb",
      "test/full_2_3_5_app_with_tests/test/functional/translations_controller_test.rb",
+     "test/full_2_3_5_app_with_tests/test/integration/translation_test.rb",
      "test/full_2_3_5_app_with_tests/test/performance/browsing_test.rb",
      "test/full_2_3_5_app_with_tests/test/test_helper.rb",
+     "test/full_2_3_5_app_with_tests/test/unit/helpers/translatables_helper_test.rb",
      "test/full_2_3_5_app_with_tests/test/unit/helpers/translations_helper_test.rb",
      "test/full_2_3_5_app_with_tests/test/unit/mongo_translatable_test.rb",
-     "test/helper.rb"
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/init.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/lib/routing_filter/base.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/lib/routing_filter/force_extension.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/lib/routing_filter/locale.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/lib/routing_filter/pagination.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/lib/routing_filter/uuid_token.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/lib/routing_filter.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/spec/force_extension_spec.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/spec/generation_spec.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/spec/pagination_extension_spec.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/spec/recognition_spec.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/spec/routing_filter_spec.rb",
+     "test/full_2_3_5_app_with_tests/vendor/plugins/routing-filter/spec/spec_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
