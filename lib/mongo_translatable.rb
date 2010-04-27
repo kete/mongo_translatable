@@ -137,7 +137,7 @@ module MongoTranslatable #:nodoc:
               # swap in attributse from translation for item that is current locale
 
               # rather than rerun the full query, simply get ids and add locale
-              result_ids = results.collect { |result| result.id }  
+              result_ids = results.collect(&:id)
 
               conditions = {:locale => I18n.locale.to_s}
               conditions[as_foreign_key_sym] = result_ids
@@ -180,7 +180,7 @@ module MongoTranslatable #:nodoc:
 
       # get a list of locales as syms for all translations locales, plus object's original locale
       def available_in_these_locales
-        [original_locale] + translations_locales.collect { |translation| translation.locale}
+        [original_locale] + translations_locales.collect(&:locale)
       end
 
       # list of locales that haven't been translated yet
