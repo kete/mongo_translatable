@@ -1,0 +1,18 @@
+fr:
+  translations:
+    new:
+      create: "Créer"
+    edit:
+      update: "Mettre à jour"
+    form:
+      locale: "Choisissez la langue"
+      translate_from_and_to: "Traduire de l' {{from}} à {{to}}"
+    helpers:
+      available_in: "Disponible en:"
+      close_box: "[Fermer]"
+      needs_translating_to: "Les besoins de traduction à:"
+    index:
+      new: "Translate"
+    show:
+      edit: "Éditer"
+      translations: "Traductions"

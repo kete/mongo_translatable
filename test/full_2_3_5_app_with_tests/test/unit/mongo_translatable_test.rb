@@ -12,7 +12,7 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       item_hash[@item.class.as_foreign_key_sym] = @item.id
       @translation = @item.class::Translation.create(item_hash)
     end
-    
+
     should "have a locale" do
       if assert(@translation.respond_to?(:locale))
         assert @translation.locale
@@ -38,7 +38,7 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
     setup do
       @item = Factory.create(:item, { :label => LOCALE_LABELS[:en] })
     end
-    
+
     should "create translation" do
       translate_item_for_locales(@item, :zh)
       assert @item.translations.count == 1
@@ -76,7 +76,7 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
     should "find item with the proper translation for current locale when there is more than one translation" do
       # add a couple translations
       translate_item_for_locales(@item, [:fi, :fr])
-      
+
       # then back to finnish
       I18n.locale = :fi
 
@@ -102,20 +102,20 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       assert_equal @item.label, LOCALE_LABELS[:fi]
     end
 
-    should "after creating translations, if the item is destroyed, the translations are destroyed" do 
+    should "after creating translations, if the item is destroyed, the translations are destroyed" do
       # add a couple translations
       translate_item_for_locales(@item, [:fi, :fr])
-      
+
       translations_ids = @item.translations.collect { |translation| translation.id }
-      
+
       @item.destroy
-      
+
       remaining_translations = Item::Translation.find(translations_ids)
-      
+
       assert_equal 0, remaining_translations.size
     end
 
-    should "when the item is destroyed, when it has no translations, it should succeed in being destroyed" do 
+    should "when the item is destroyed, when it has no translations, it should succeed in being destroyed" do
       assert_equal 0, @item.translations.size
       assert @item.destroy
     end
@@ -154,8 +154,8 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       I18n.locale = @original_locale
     end
   end
-  
-  context "translations for an item" do 
+
+  context "translations for an item" do
     setup do
       I18n.locale = I18n.default_locale
       @item = Factory.create(:item)
@@ -163,22 +163,24 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       translate_item_for_locales(@item, @translation_keys)
     end
 
-    should "be retrievable from translations method" do 
+    should "be retrievable from translations method" do
       assert_equal @translation_keys.size, @item.translations.size
     end
 
-    should "hae just locales be retrievable from translations_locales method" do 
+    should "hae just locales be retrievable from translations_locales method" do
       # these should be partial objects and not have any values for other attributes
-      locales_only = @item.translations_locales.select { |translation| translation.label.nil? }
-      
-      assert_equal @translation_keys, locales_only.collect { |translation| translation.locale.to_sym }
+      locale_keys = @item.translations_locales.collect { |translation| translation.locale.to_sym if translation.label.nil? }.compact
+
+      assert_equal 0, (@translation_keys - locale_keys).size
     end
 
-    should "have translation locales plus original local be retrievable as available_in_these_locales" do 
-      assert_equal [:en] + @translation_keys, @item.available_in_these_locales.collect { |locale| locale.to_sym }
+    should "have translation locales plus original local be retrievable as available_in_these_locales" do
+      locale_keys = @item.available_in_these_locales.collect { |locale| locale.to_sym }
+
+      assert_equal 0, ( ([:en] + @translation_keys) - locale_keys ).size
     end
 
-    should "have needed_in_these_locales method that returns locales that haven't been translated yet" do 
+    should "have needed_in_these_locales method that returns locales that haven't been translated yet" do
       Item::Translation.first(:item_id => @item.id, :locale => "zh").destroy
       assert_equal [:zh], @item.needed_in_these_locales.collect { |locale| locale.to_sym }
     end

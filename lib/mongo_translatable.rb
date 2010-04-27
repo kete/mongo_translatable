@@ -15,7 +15,7 @@ module MongoTranslatable #:nodoc:
   #   end
   #
   #   I18n.locale = :en
-  # 
+  #
   #   item = Item.create(:label => "a label")
   #   p item.locale
   #   "en"
@@ -34,7 +34,7 @@ module MongoTranslatable #:nodoc:
   #   p item.locale
   #   "fi"
   #
-  # If 
+  # If
   # The general approach is inspired by this code in globalize2:
   # http://github.com/joshmh/globalize2/blob/master/lib/globalize/active_record.rb
   # grab what the normal finder would return
@@ -43,7 +43,7 @@ module MongoTranslatable #:nodoc:
   # creates TranslatableClass::Translation when the declaration method is defined
   # ala acts_as_versioned VersionedClass::Version
   # every translatable class gets their own Translation class under it
-  # 
+  #
   # TODO: translations aren't real associations
   # and the translations method is thus not chainable as you would expect
   # currently investigating adding a plugin for mongo_mapper that will do associations declaired
@@ -53,13 +53,13 @@ module MongoTranslatable #:nodoc:
     def self.included(base)
       base.extend(ClassMethods)
     end
-    
+
     module ClassMethods
-      
+
       def mongo_translate(*args)
         # don't allow multiple calls
         return if self.included_modules.include?(MongoTranslatable::Translated::InstanceMethods)
-        
+
         send :include, MongoTranslatable::Translated::InstanceMethods
 
         options = args.last.is_a?(Hash) ? args.pop : Hash.new
@@ -79,7 +79,7 @@ module MongoTranslatable #:nodoc:
         # create the dynamic translation model
         const_set("Translation", Class.new).class_eval do
           include MongoMapper::Document
-          
+
           @@translatable_class = original_class
 
           original_class.translatable_attributes.each do |translatable_attribute|
@@ -87,7 +87,7 @@ module MongoTranslatable #:nodoc:
           end
 
           key :locale, String, :required => true
-          
+
           before_save :locale_to_string
 
           # TODO: add validation for locale unique to translatable_class.as_foreign_key_sym scope
@@ -96,7 +96,7 @@ module MongoTranslatable #:nodoc:
           def translatable
             @@translatable_class.find(self.send(@@translatable_class.as_foreign_key_sym))
           end
-          
+
           protected
           # always store string version of locale (rather than symbol)
           def locale_to_string
@@ -112,7 +112,7 @@ module MongoTranslatable #:nodoc:
             # this will throw a RecordNotFound before executing our code
             # if that is the response
             results = super(*args)
-            
+
             # handle single record
             if results.is_a?(self)
               result = results
@@ -137,7 +137,7 @@ module MongoTranslatable #:nodoc:
               # swap in attributse from translation for item that is current locale
 
               # rather than rerun the full query, simply get ids and add locale
-              result_ids = results.collect { |result| result.id }  
+              result_ids = results.collect { |result| result.id }
 
               conditions = {:locale => I18n.locale.to_s}
               conditions[as_foreign_key_sym] = result_ids
@@ -149,7 +149,7 @@ module MongoTranslatable #:nodoc:
               results.each do |result|
                 unless result.locale == I18n.locale.to_s
                   matching_translation = translations.select { |t| t[as_foreign_key_sym] == result.id }.first
-                  
+
                   if matching_translation
                     translatable_attributes.each do |key|
                       result.send(key.to_s + "=", matching_translation.attributes[key])

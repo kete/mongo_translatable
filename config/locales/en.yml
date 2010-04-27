@@ -6,9 +6,13 @@ en:
       update: "Update"
     form:
       locale: "Choose language"
+      translate_from_and_to: "Translate from {{from}} to {{to}}"
+    helpers:
+      available_in: "Available in:"
+      close_box: "[close]"
+      needs_translating_to: "Needs translating to:"
     index:
       new: "Translate"
     show:
       edit: "Edit"
       translations: "Translations"
-

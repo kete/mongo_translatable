@@ -1,26 +1,30 @@
-<style type="text/css">
-.original_values,
-.translated_values {
-  float:left;
-  margin: 10px 40px;
-}
-.label {
-  margin: 0 10px;
-}
-</style>
+<h3 style="margin-top:0;">
+  <%= I18n.t('translations.form.translate_from_and_to',
+             :from => TranslationsHelper::available_locales[I18n.locale],
+             :to => TranslationsHelper::available_locales[@translation.locale]) %>
+</h3>
 
-<div class="original_values">
+<%= form.error_messages %>
+<%= form.hidden_field :locale  %>
+
+<div class="original_values" style="float: left; width: 48%; border-right: 1px solid #000;">
+  <h4 style="margin-top:0px; margin-bottom: 10px;"><%= TranslationsHelper::available_locales[I18n.locale] %></h4>
   <%= render :partial => 'translatable_value', :collection => untranslated_values_with_localized_labels -%>
 </div>
 
-<div class="translated_values">
-  <%= form.error_messages %>
-
+<div class="translated_values" style="float: left; width: 48%; margin-left: 2%;">
+  <h4 style="margin-top:0px; margin-bottom: 10px;"><%= TranslationsHelper::available_locales[@translation.locale] %></h4>
   <%= render :partial => 'translation_field', :collection => @translatable_class.translatable_attributes, :locals => { :form => form } -%>
+</div>
 
-  <%= form.hidden_field :locale  %>
+<div style="clear:both;"></div>
 
-  <p>
-    <%= form.submit @button_text %>
-  </p>
+<div class="make_translation" style="text-align: center; margin-top: 20px; margin-right: 4%;">
+  <%= form.submit @button_text %>
+</div>
+
+<div class="translate_links" style="margin-top: 20px;">
+  <%= translatable_popup_js_and_css %>
+  <%= available_in_locales_for(@original, :popup => request.xhr?) %>
+  <%= needed_in_locales_for(@original, :popup => request.xhr?) %>
 </div>

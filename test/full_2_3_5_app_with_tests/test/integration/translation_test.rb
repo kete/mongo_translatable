@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 require 'test_helper'
+
+Webrat.configure do |config|
+  config.mode = :rails
+end
+
 class TranslationTest < ActionController::IntegrationTest
   context "A translatable object" do
     include Webrat::HaveTagMatcher
@@ -28,12 +33,12 @@ class TranslationTest < ActionController::IntegrationTest
       click_link "Français"
       fill_in "item_translation_label", :with => LOCALE_LABELS[:fr]
       click_button "Create"
-      assert_contain "Available in"
+      assert_contain "Disponible en:"
       # redirected show translated object in locale of translation added
       assert_have_tag "li", :content => "Français"
     end
 
-    context "that has been previously translated" do 
+    context "that has been previously translated" do
 
       setup do
         translate_item_for_locales(@item, [:fr, :zh])
@@ -52,7 +57,7 @@ class TranslationTest < ActionController::IntegrationTest
         assert_contain "標籤"
       end
 
-      should "be able to edit translation" do 
+      should "be able to edit translation" do
         visit "/en/items/1/translations/fr/edit"
         fill_in "item_translation_label", :with => "#{LOCALE_LABELS[:fr]} 2"
         click_button "Update"

@@ -58,9 +58,9 @@ module TranslationsHelper
     end
     list = '<ul>' + '<li>' + list.join('</li><li>') + '</li>' + '</ul>'
   end
-  
+
   private
-  def set_original 
+  def set_original
     @original ||= @translatable || @translated
   end
 end

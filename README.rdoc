@@ -5,7 +5,7 @@ Rails specific I18n model localization meant to tie-in to existing ActiveRecord 
 If you are interested in pure MongoDB localization (your model is MongoMapper::Document, for example), check out http://github.com/ahe/mongo_translation.
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a

@@ -1,9 +1,6 @@
-<p>Available in:
-  <%= available_in_locales_for(@item) %>
-</p>
-<p>Needs translating to:
-  <%= needed_in_locales_for(@item) %>
-</p>
+<%= translatable_popup_js_and_css %>
+<%= available_in_locales_for(@item) %>
+<%= needed_in_locales_for(@item, :popup => true) %>
 
 <p>
   <b>Label:</b>

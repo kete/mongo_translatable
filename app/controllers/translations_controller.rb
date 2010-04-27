@@ -34,6 +34,7 @@ class TranslationsController < ApplicationController
     @translation.locale = params[:to_locale].present? ? params[:to_locale] : I18n.locale.to_s
 
     respond_to do |format|
+      format.js { render :layout => false }
       format.html # new.html.erb
       format.xml  { render :xml => @translation }
     end
@@ -113,12 +114,12 @@ class TranslationsController < ApplicationController
   # and its matching class
   def set_translatable_key_and_class
     translatable_keys = params.keys.select { |key| key.to_s.include?('_id') }
-    
+
     translatable_keys.each do |key|
       key = key.to_s
       if key != 'translation_id' && request
         key_singular = key.sub('_id', '')
-        
+
         # make sure this is found in the request url
         # thus making this a nested route
         # assumes plural version for controller name
