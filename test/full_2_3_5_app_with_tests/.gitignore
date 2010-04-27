@@ -19,7 +19,9 @@ rdoc
 pkg
 
 ## PROJECT::SPECIFIC
+webrat*
 test.sqlite3
 test/debug.log
 db/development.sqlite3
 db/test.sqlite3
+log/*.log

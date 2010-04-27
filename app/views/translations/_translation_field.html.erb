@@ -1,5 +1,4 @@
-<p>
-  <%= form.label localized_label_for(translation_field) %>
-  <%= form.text_field translation_field %>
-</p>
-
+<div class="translated_value">
+  <span class="label"><%= form.label translation_field, localized_label_for(translation_field) %>:</span>
+  <span class="value"><%= form.text_field translation_field %></span>
+</div>

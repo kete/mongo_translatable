@@ -1,3 +1,6 @@
 <% label = translatable_value[:localized_label]
    value = translatable_value[:value] -%>
-<%= h(label) -%>: <%= h(value) -%>
+<div class="original_value">
+  <span class="label"><%= h(label) -%>:</span>
+  <span class="value"><%= h(value) -%></span>
+</div>
