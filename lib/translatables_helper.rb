@@ -5,7 +5,7 @@ module TranslatablesHelper
 
     translatable.available_in_these_locales.each_with_index do |locale, index|
       styles = "float: left; padding: 0 5px; #{'border-left: 1px solid #000' unless index == 0}"
-      onclick = 'update_translation_box(this); return false' if options[:popup]
+      onclick = 'update_translation_box(this); return false' if options[:lightbox]
       html += content_tag(:li, :style => styles) do
         link_to_unless_current(TranslationsHelper::available_locales[locale],
           url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params))),
@@ -25,7 +25,7 @@ module TranslatablesHelper
     translatable_key = translatable.class.name.tableize.singularize + '_id'
     translatable.needed_in_these_locales.each_with_index do |locale, index|
       styles = "float: left; padding: 0 10px; #{'border-left: 1px solid #000' unless index == 0}"
-      onclick = 'update_translation_box(this); return false' if options[:popup]
+      onclick = 'update_translation_box(this); return false' if options[:lightbox]
       html += content_tag(:li, :style => styles) do
         link_to(TranslationsHelper::available_locales[locale],
                 { :action => :new,
@@ -40,7 +40,7 @@ module TranslatablesHelper
     html
   end
 
-  def translatable_popup_js_and_css
+  def translatable_lightbox_js_and_css
     js = javascript_tag("
     function close_open_translation_box() {
       if ($('translate_outer_box')) { $('translate_outer_box').remove(); }
