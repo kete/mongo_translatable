@@ -23,7 +23,10 @@ module TranslatablesHelper
     html += "<li style='float:left;'>#{I18n.t('translations.helpers.needs_translating_to')}</li>"
 
     translatable_key = translatable.class.name.tableize.singularize + '_id'
-    translatable.needed_in_these_locales.each_with_index do |locale, index|
+    needed_locales = translatable.needed_in_these_locales
+    return unless needed_locales.any?
+
+    needed_locales.each_with_index do |locale, index|
       styles = "float: left; padding: 0 10px; #{'border-left: 1px solid #000' unless index == 0}"
       onclick = 'update_translation_box(this); return false' if options[:lightbox]
       html += content_tag(:li, :style => styles) do
