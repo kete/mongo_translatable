@@ -5,9 +5,9 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Items: <%= controller.action_name %></title>
+  <%= yield :add_on_scripts_and_links %>
   <%= stylesheet_link_tag 'scaffold' %>
   <%= javascript_include_tag :defaults %>
-  <%= google_auto_translatable_js %>
 </head>
 <body>
 

@@ -15,6 +15,10 @@ module TranslatablesHelper
 
     html += '</ul>'
     html += "<div style='clear:both;'></div>"
+
+    translatable_lightbox_js_and_css if options[:lightbox]
+    google_auto_translatable_js
+
     html
   end
 
@@ -40,10 +44,16 @@ module TranslatablesHelper
 
     html += '</ul>'
     html += "<div style='clear:both;'></div>"
+
+    translatable_lightbox_js_and_css if options[:lightbox]
+    google_auto_translatable_js
+
     html
   end
 
   def translatable_lightbox_js_and_css
+    return if @translatable_lightbox_js_and_css_inserted
+
     js = javascript_tag("
     function close_open_translation_box() {
       if ($('translate_outer_box')) { $('translate_outer_box').remove(); }
@@ -77,13 +87,15 @@ module TranslatablesHelper
       CSS
     end
 
-    js + css
+    @translatable_lightbox_js_and_css_inserted = true
+    content_for(:add_on_scripts_and_links) { js + css }
   end
 
   def google_auto_translatable_js
-    @google_auto_translatable_enabled = true
-    javascript_include_tag("http://www.google.com/jsapi?format=") +
-    javascript_tag("
+    return if @google_auto_translatable_js_inserted
+
+    js = javascript_include_tag("http://www.google.com/jsapi?format=")
+    js += javascript_tag("
     google.load('language', '1');
     function getGoogleTranslation(field_id, text, from_language, to_language) {
       google.language.translate(text, from_language, to_language, function(result) {
@@ -91,5 +103,8 @@ module TranslatablesHelper
       });
     }
     ")
+
+    @google_auto_translatable_js_inserted = true
+    content_for(:add_on_scripts_and_links) { js }
   end
 end
