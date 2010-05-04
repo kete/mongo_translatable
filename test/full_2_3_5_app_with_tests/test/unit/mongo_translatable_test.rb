@@ -29,6 +29,12 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       end
     end
 
+    should "be able to retrieve just the translated attribute" do
+      if assert(@item.respond_to?(:translations) && @item.respond_to?(:label_translation_for))
+        assert @item.label_translation_for(I18n.locale)
+      end
+    end
+
     should "be able to retrieve its item from the item's persistence" do
       assert @translation.translatable
     end
@@ -117,7 +123,8 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
 
     should "when the item is destroyed, when it has no translations, it should succeed in being destroyed" do
       assert_equal 0, @item.translations.size
-      assert @item.destroy
+      assert @it
+em.destroy
     end
 
     teardown do

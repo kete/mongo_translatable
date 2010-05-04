@@ -106,6 +106,23 @@ module MongoTranslatable #:nodoc:
         end
 
         class_eval do
+
+          # dynamically define translation accessor methods
+          def self.define_translation_accessor_method_for(attribute_name)
+            # create the template code
+            code = Proc.new { |locale|
+              translation_for(locale).send(attribute_name.to_sym)
+            }
+
+            define_method(attribute_name.to_s + "_translation_for", &code)
+          end
+
+          # define convenience method for each translatable_attribute
+          # uses class method, see class method definitions
+          translatable_attributes.each do |attribute|
+            define_translation_accessor_method_for(attribute)
+          end
+
           # override find, this is called by all the dynamic finders
           # it isn't called by find_by_sql though (may be other exceptions)
           def self.find(*args)
