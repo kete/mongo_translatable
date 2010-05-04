@@ -1,4 +1,7 @@
 class TranslationsController < ApplicationController
+  # Prevents the following error from showing up, common in Rails engines
+  # A copy of ApplicationController has been removed from the module tree but is still active!
+  unloadable
 
   before_filter :set_translatable_key_and_class
   # just being picky about contextual naming for clarity in variable's purpose
