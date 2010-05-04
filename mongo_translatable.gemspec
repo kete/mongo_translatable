@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Walter McGinnis"]
-  s.date = %q{2010-04-22}
+  s.date = %q{2010-05-04}
   s.description = %q{Rails specific I18n model localization meant to tie-in to existing ActiveRecord models, ala Globalize2, backed by MongoDB rather than an RDBMS. May include UI elements, too.}
   s.email = %q{walter@katipo.co.nz}
   s.extra_rdoc_files = [
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "app/controllers/translations_controller.rb",
      "app/helpers/translations_helper.rb",
+     "app/views/layouts/translations.html.erb",
      "app/views/translations/_form.html.erb",
      "app/views/translations/_translatable_value.html.erb",
      "app/views/translations/_translation_field.html.erb",
@@ -34,6 +35,7 @@ Gem::Specification.new do |s|
      "app/views/translations/new.html.erb",
      "app/views/translations/show.html.erb",
      "config/locales/en.yml",
+     "config/locales/fr.yml",
      "lib/mongo_translatable.rb",
      "lib/translatables_helper.rb",
      "lib/translations_controller_helpers.rb",
@@ -69,6 +71,7 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/config/locales/zh.yml",
      "test/full_2_3_5_app_with_tests/config/routes.rb",
      "test/full_2_3_5_app_with_tests/db/migrate/20100407010602_create_items.rb",
+     "test/full_2_3_5_app_with_tests/db/schema.rb",
      "test/full_2_3_5_app_with_tests/db/seeds.rb",
      "test/full_2_3_5_app_with_tests/doc/README_FOR_APP",
      "test/full_2_3_5_app_with_tests/log/production.log",
@@ -100,6 +103,7 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/test/functional/translations_controller_test.rb",
      "test/full_2_3_5_app_with_tests/test/integration/translation_test.rb",
      "test/full_2_3_5_app_with_tests/test/performance/browsing_test.rb",
+     "test/full_2_3_5_app_with_tests/test/selenium.rb",
      "test/full_2_3_5_app_with_tests/test/test_helper.rb",
      "test/full_2_3_5_app_with_tests/test/unit/helpers/translatables_helper_test.rb",
      "test/full_2_3_5_app_with_tests/test/unit/helpers/translations_helper_test.rb",
@@ -108,7 +112,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/kete/mongo_translatable}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{MongoDB backed Rails specific I18n model localization meant to tie-in to existing ActiveRecord models}
   s.test_files = [
     "test/full_2_3_5_app_with_tests/app/controllers/application_controller.rb",
@@ -134,6 +138,7 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/test/functional/translations_controller_test.rb",
      "test/full_2_3_5_app_with_tests/test/integration/translation_test.rb",
      "test/full_2_3_5_app_with_tests/test/performance/browsing_test.rb",
+     "test/full_2_3_5_app_with_tests/test/selenium.rb",
      "test/full_2_3_5_app_with_tests/test/test_helper.rb",
      "test/full_2_3_5_app_with_tests/test/unit/helpers/translatables_helper_test.rb",
      "test/full_2_3_5_app_with_tests/test/unit/helpers/translations_helper_test.rb",
