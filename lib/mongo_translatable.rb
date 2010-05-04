@@ -2,7 +2,8 @@
 require "active_record"
 require "mongo_mapper"
 
-ActionController::Base.send :include, TranslationsControllerHelpers
+ActionController::Base.send(:include, TranslationsControllerHelpers)
+ActionController::Base.send(:helper, TranslatablesHelper)
 
 # load our locales
 I18n.load_path += Dir[ File.join(File.dirname(__FILE__), '..', 'config', 'locales', '*.{rb,yml}') ]
