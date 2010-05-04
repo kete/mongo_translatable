@@ -63,7 +63,7 @@ module TranslatablesHelper
     function update_translation_box(element) {
       new Ajax.Request(element.href, {
         method: 'get',
-        onSuccess: function(transport) {
+        onComplete: function(transport) {
           var outer_box = Element('div', { 'id': 'translate_outer_box' }).setOpacity(0.8);
           var close_link = '<a href=\\'\\' title=\\'Close\\' onclick=\\'close_open_translation_box(); return false;\\'>#{I18n.t('translations.helpers.close_box')}</a>';
           var close_box = '<div id=\\'translate_close_box\\'>' + close_link + '</div>';
