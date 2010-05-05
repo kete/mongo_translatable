@@ -9,11 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100407010602) do
+ActiveRecord::Schema.define(:version => 20100504234216) do
 
   create_table "items", :force => true do |t|
     t.string   "label",           :null => false
     t.string   "value"
+    t.string   "locale"
+    t.string   "original_locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "not_swapped_in_records", :force => true do |t|
+    t.string   "name",            :null => false
     t.string   "locale"
     t.string   "original_locale"
     t.datetime "created_at"

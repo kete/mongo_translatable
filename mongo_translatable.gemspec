@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Walter McGinnis"]
-  s.date = %q{2010-05-04}
+  s.date = %q{2010-05-05}
   s.description = %q{Rails specific I18n model localization meant to tie-in to existing ActiveRecord models, ala Globalize2, backed by MongoDB rather than an RDBMS. May include UI elements, too.}
   s.email = %q{walter@katipo.co.nz}
   s.extra_rdoc_files = [
@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/app/helpers/application_helper.rb",
      "test/full_2_3_5_app_with_tests/app/helpers/items_helper.rb",
      "test/full_2_3_5_app_with_tests/app/models/item.rb",
+     "test/full_2_3_5_app_with_tests/app/models/not_swapped_in_record.rb",
      "test/full_2_3_5_app_with_tests/app/views/items/edit.html.erb",
      "test/full_2_3_5_app_with_tests/app/views/items/index.html.erb",
      "test/full_2_3_5_app_with_tests/app/views/items/new.html.erb",
@@ -71,6 +72,7 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/config/locales/zh.yml",
      "test/full_2_3_5_app_with_tests/config/routes.rb",
      "test/full_2_3_5_app_with_tests/db/migrate/20100407010602_create_items.rb",
+     "test/full_2_3_5_app_with_tests/db/migrate/20100504234216_create_not_swapped_in_records.rb",
      "test/full_2_3_5_app_with_tests/db/schema.rb",
      "test/full_2_3_5_app_with_tests/db/seeds.rb",
      "test/full_2_3_5_app_with_tests/doc/README_FOR_APP",
@@ -112,7 +114,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/kete/mongo_translatable}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{MongoDB backed Rails specific I18n model localization meant to tie-in to existing ActiveRecord models}
   s.test_files = [
     "test/full_2_3_5_app_with_tests/app/controllers/application_controller.rb",
@@ -120,6 +122,7 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/app/helpers/application_helper.rb",
      "test/full_2_3_5_app_with_tests/app/helpers/items_helper.rb",
      "test/full_2_3_5_app_with_tests/app/models/item.rb",
+     "test/full_2_3_5_app_with_tests/app/models/not_swapped_in_record.rb",
      "test/full_2_3_5_app_with_tests/config/boot.rb",
      "test/full_2_3_5_app_with_tests/config/environment.rb",
      "test/full_2_3_5_app_with_tests/config/environments/development.rb",
@@ -132,6 +135,7 @@ Gem::Specification.new do |s|
      "test/full_2_3_5_app_with_tests/config/initializers/session_store.rb",
      "test/full_2_3_5_app_with_tests/config/routes.rb",
      "test/full_2_3_5_app_with_tests/db/migrate/20100407010602_create_items.rb",
+     "test/full_2_3_5_app_with_tests/db/migrate/20100504234216_create_not_swapped_in_records.rb",
      "test/full_2_3_5_app_with_tests/db/schema.rb",
      "test/full_2_3_5_app_with_tests/db/seeds.rb",
      "test/full_2_3_5_app_with_tests/test/factories.rb",

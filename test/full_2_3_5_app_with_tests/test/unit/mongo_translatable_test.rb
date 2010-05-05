@@ -193,6 +193,25 @@ em.destroy
     end
   end
 
+  context "A Translatable class that has redefine_find == false" do
+    setup do
+      @record = Factory.create(:not_swapped_in_record)
+      I18n.locale = I18n.default_locale
+      record_hash = Hash.new
+      record_hash[:name] = @record.attributes['name']
+      record_hash[:locale] = :fr
+      record_hash[@record.class.as_foreign_key_sym] = @record.id
+      @translation = @record.class::Translation.create(record_hash)
+    end
+
+    should "not swap out locale specific translation for record when loaded from a translated locale" do 
+      I18n.locale = :fr
+      @record.reload
+      assert_equal 'en', @record.locale
+    end
+
+  end
+
   private
 
   # see many_tests for what it expects
