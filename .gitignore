@@ -17,6 +17,7 @@ tmtags
 coverage
 rdoc
 pkg
+*.gemspec
 
 ## PROJECT::SPECIFIC
 test.sqlite3
