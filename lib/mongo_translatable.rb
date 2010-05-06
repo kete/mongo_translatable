@@ -137,56 +137,58 @@ module MongoTranslatable #:nodoc:
               # if that is the response
               results = super(*args)
 
-              # handle single record
-              if results.is_a?(self)
-                result = results
+              if results
+                # handle single record
+                if results.is_a?(self)
+                  result = results
 
-                # only look up translation if the required locale is not the default for the record
-                if result.present? && result.locale != I18n.locale.to_s
-                  # look up translation and swap in its attributes for result
-                  translated = result.translation_for(I18n.locale)
-                  if translated.present?
-                    self.translatable_attributes.each do |translated_attribute|
-                      result.send(translated_attribute.to_s + "=", translated.attributes[translated_attribute])
-                    end
-                    result.locale = translated.locale
-                  end
-                end
-
-                results = result
-              else
-                # handle multiple records
-                # do second query of translations
-                # if item locale is different than current locale
-                # swap in attributse from translation for item that is current locale
-
-                # rather than rerun the full query, simply get ids and add locale
-                result_ids = results.collect(&:id)
-
-                conditions = {:locale => I18n.locale.to_s}
-                conditions[as_foreign_key_sym] = result_ids
-
-                translations = self::Translation.all(conditions)
-
-                translated_results = results
-                index = 0
-                results.each do |result|
-                  unless result.locale == I18n.locale.to_s
-                    matching_translation = translations.select { |t| t[as_foreign_key_sym] == result.id }.first
-
-                    if matching_translation
-                      translatable_attributes.each do |key|
-                        result.send(key.to_s + "=", matching_translation.attributes[key])
+                  # only look up translation if the required locale is not the default for the record
+                  if result.present? && result.locale != I18n.locale.to_s
+                    # look up translation and swap in its attributes for result
+                    translated = result.translation_for(I18n.locale)
+                    if translated.present?
+                      self.translatable_attributes.each do |translated_attribute|
+                        result.send(translated_attribute.to_s + "=", translated.attributes[translated_attribute])
                       end
-
-                      result.locale = I18n.locale.to_s
-
-                      translated_results[index] = result
+                      result.locale = translated.locale
                     end
                   end
-                  index += 1
+
+                  results = result
+                else
+                  # handle multiple records
+                  # do second query of translations
+                  # if item locale is different than current locale
+                  # swap in attributse from translation for item that is current locale
+
+                  # rather than rerun the full query, simply get ids and add locale
+                  result_ids = results.collect(&:id)
+
+                  conditions = {:locale => I18n.locale.to_s}
+                  conditions[as_foreign_key_sym] = result_ids
+
+                  translations = self::Translation.all(conditions)
+
+                  translated_results = results
+                  index = 0
+                  results.each do |result|
+                    unless result.locale == I18n.locale.to_s
+                      matching_translation = translations.select { |t| t[as_foreign_key_sym] == result.id }.first
+
+                      if matching_translation
+                        translatable_attributes.each do |key|
+                          result.send(key.to_s + "=", matching_translation.attributes[key])
+                        end
+
+                        result.locale = I18n.locale.to_s
+
+                        translated_results[index] = result
+                      end
+                    end
+                    index += 1
+                  end
+                  results = translated_results
                 end
-                results = translated_results
               end
             end
           end
