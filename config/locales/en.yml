@@ -10,10 +10,18 @@ en:
     helpers:
       available_in: "Available in:"
       close_box: "[close]"
+      manage: "manage"
       needs_translating_to: "Needs translating to:"
     index:
-      new: "Translate"
+      are_you_sure: 'Are you sure?'
+      delete: "Delete"
+      edit: "Edit"
+      new: "New Translation"
       title: "Translations for this {{type}}"
     show:
       edit: "Edit"
       translations: "Translations"
+    controllers:
+      created: 'Translation was successfully created.'
+      deleted: 'Translation was successfully deleted.'
+      updated: 'Translation was successfully updated.'

@@ -57,7 +57,7 @@ class TranslationsController < ApplicationController
 
     respond_to do |format|
       if @translation.save
-        flash[:notice] = 'Translation was successfully created.'
+        flash[:notice] = t('translations.controllers.created')
         # we redirect to translated object in the new translated version
         # assumes controller name is tableized version of class
         format.html { redirect_to url_for_translated(:locale => @translation.locale) }
@@ -76,7 +76,7 @@ class TranslationsController < ApplicationController
     respond_to do |format|
       translation_params = params[:translation] || params[@translatable_params_name + '_translation']
       if @translation.update_attributes(translation_params)
-        flash[:notice] = 'Translation was successfully updated.'
+        flash[:notice] = t('translations.controllers.updated')
         format.html { redirect_to url_for_translated(:locale => @translation.locale) }
         format.xml  { head :ok }
       else
@@ -92,9 +92,9 @@ class TranslationsController < ApplicationController
     @translation.destroy
 
     respond_to do |format|
-      format.html { redirect_to url_for_translated }
+      flash[:notice] = t('translations.controllers.deleted')
+      format.html { redirect_to :action => :index }
       format.xml  { head :ok }
-
     end
   end
 

@@ -13,6 +13,12 @@ module TranslatablesHelper
       end
     end
 
+    manage_link = link_to(I18n.t('translations.helpers.manage'), {
+      :controller => :translations, :action => :index,
+      translatable_key_from(translatable) => translatable
+    })
+
+    html += "<li style='float:left; padding-left: 25px;'>(#{manage_link})</li>"
     html += '</ul>'
     html += "<div style='clear:both;'></div>"
 
@@ -26,7 +32,6 @@ module TranslatablesHelper
     html = "<ul style='list-style:none; margin:0; padding:0;'>"
     html += "<li style='float:left;'>#{I18n.t('translations.helpers.needs_translating_to')}</li>"
 
-    translatable_key = translatable.class.name.tableize.singularize + '_id'
     needed_locales = translatable.needed_in_these_locales
     return unless needed_locales.any?
 
@@ -37,7 +42,7 @@ module TranslatablesHelper
         link_to(TranslationsHelper::available_locales[locale],
                 { :action => :new,
                 :controller => :translations,
-                translatable_key => translatable,
+                translatable_key_from(translatable) => translatable,
                 :to_locale => locale }, { :onclick => onclick })
       end
     end
@@ -49,6 +54,10 @@ module TranslatablesHelper
     google_auto_translatable_js
 
     html
+  end
+
+  def translatable_key_from(translatable)
+    translatable.class.name.tableize.singularize + '_id'
   end
 
   def translatable_lightbox_js_and_css

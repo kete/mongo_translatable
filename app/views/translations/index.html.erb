@@ -2,7 +2,12 @@
 
 <ul>
 <% @translations.each do |translation| %>
-  <li><%= link_to(h(translation.locale), { :action => :show, :id => h(translation.locale) }) -%></li>
+  <li>
+    <%= link_to(h(translation.locale), { :action => :show, :id => h(translation.locale) }) -%>
+    [ <%= link_to(t('translations.index.edit').downcase, { :id => h(translation.locale), :action => :edit }) -%> |
+      <%= link_to(t('translations.index.delete').downcase, { :id => h(translation.locale), :action => :destroy },
+                  { :method => :delete, :confirm => t('translations.index.are_you_sure') }) -%> ]
+  </li>
 <% end %>
 </ul>
 
