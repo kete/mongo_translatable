@@ -5,7 +5,7 @@
     <a href='#' onclick="if (getGoogleTranslation) {
       getGoogleTranslation(this.up('.translated_value').children[1].down('input').id,
                            '<%= escape_javascript(@original.send(translation_field.to_sym)) %>',
-                           '<%= I18n.locale %>', '<%= @translation.locale %>');
+                           '<%= I18n.locale %>', '<%=h @translation.locale %>');
       return false;
     }" title='Auto Translate Using Google'>[auto translate]</a>
   </span>

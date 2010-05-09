@@ -2,7 +2,7 @@
 
 <ul>
 <% @translations.each do |translation| %>
-  <li><%= link_to(translation.locale, { :action => :show, :id =>  translation.locale }) -%></li>
+  <li><%= link_to(h(translation.locale), { :action => :show, :id => h(translation.locale) }) -%></li>
 <% end %>
 </ul>
 

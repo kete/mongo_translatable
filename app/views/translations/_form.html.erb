@@ -1,7 +1,7 @@
 <h2 style="margin:0 0 10px 0;">
   <%= I18n.t('translations.form.translate_from_and_to',
              :from => TranslationsHelper::available_locales[I18n.locale],
-             :to => TranslationsHelper::available_locales[@translation.locale]) %>
+             :to => TranslationsHelper::available_locales[h(@translation.locale)]) %>
 </h2>
 
 <%= form.error_messages %>
