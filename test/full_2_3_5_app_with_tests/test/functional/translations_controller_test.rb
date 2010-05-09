@@ -2,7 +2,7 @@
 require 'test_helper'
 
 class TranslationsControllerTest < ActionController::TestCase
-  context "The translations controller" do 
+  context "The translations controller" do
     setup do
       @item = Factory.create(:item)
     end
@@ -26,7 +26,7 @@ class TranslationsControllerTest < ActionController::TestCase
       assert_redirected_to :action => 'show', :locale => assigns(:translation).locale, :id => 1, :controller => 'items'
     end
 
-    context "when there is an existing translation" do 
+    context "when there is an existing translation" do
       setup do
         @item.translate(:label => 'une étiquette', :locale => 'fr')
         @translation_1 = @item.translations.first
@@ -57,7 +57,7 @@ class TranslationsControllerTest < ActionController::TestCase
           delete :destroy, :id => @translation_1.locale, :item_id => 1
         end
 
-        assert_redirected_to :action => :show, :id => 1, :controller => 'items'
+        assert_redirected_to :action => :index
       end
     end
   end
