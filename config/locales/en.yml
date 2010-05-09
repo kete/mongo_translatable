@@ -13,6 +13,7 @@ en:
       needs_translating_to: "Needs translating to:"
     index:
       new: "Translate"
+      title: "Translations for this {{type}}"
     show:
       edit: "Edit"
       translations: "Translations"

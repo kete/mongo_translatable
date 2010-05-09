@@ -1,19 +1,19 @@
-<h3 style="margin-top:0;">
+<h2 style="margin:0 0 10px 0;">
   <%= I18n.t('translations.form.translate_from_and_to',
              :from => TranslationsHelper::available_locales[I18n.locale],
              :to => TranslationsHelper::available_locales[@translation.locale]) %>
-</h3>
+</h2>
 
 <%= form.error_messages %>
 <%= form.hidden_field :locale  %>
 
 <div class="original_values" style="float: left; width: 48%; border-right: 1px solid #000;">
-  <h4 style="margin-top:0px; margin-bottom: 10px;"><%= TranslationsHelper::available_locales[I18n.locale] %></h4>
+  <h3 style="margin:0 0 10px 0;"><%= TranslationsHelper::available_locales[I18n.locale] %></h3>
   <%= render :partial => 'translatable_value', :collection => untranslated_values_with_localized_labels -%>
 </div>
 
 <div class="translated_values" style="float: left; width: 48%; margin-left: 2%;">
-  <h4 style="margin-top:0px; margin-bottom: 10px;"><%= TranslationsHelper::available_locales[@translation.locale] %></h4>
+  <h3 style="margin:0 0 10px 0;"><%= TranslationsHelper::available_locales[@translation.locale] %></h3>
   <%= render :partial => 'translation_field', :collection => @translatable_class.translatable_attributes, :locals => { :form => form } -%>
 </div>
 
