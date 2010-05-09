@@ -77,15 +77,14 @@ module MongoTranslatable #:nodoc:
         before_save :set_locale_if_necessary
         before_destroy :destroy_translations
 
-        original_class = self
-
         # create the dynamic translation model
         const_set("Translation", Class.new).class_eval do
           include MongoMapper::Document
 
-          @@translatable_class = original_class
+          cattr_accessor :translatable_class
+          self.translatable_class = self.name.split('::').first.constantize
 
-          original_class.translatable_attributes.each do |translatable_attribute|
+          self.translatable_class.translatable_attributes.each do |translatable_attribute|
             key translatable_attribute, String
           end
 
@@ -97,7 +96,7 @@ module MongoTranslatable #:nodoc:
           # not implemented in mongo mapper yet
 
           def translatable
-            @@translatable_class.find(self.send(@@translatable_class.as_foreign_key_sym))
+            self.translatable_class.find(self.send(self.translatable_class.as_foreign_key_sym))
           end
 
           protected
@@ -204,7 +203,7 @@ module MongoTranslatable #:nodoc:
             end
             results = translated_results
           end
-          
+
         end
 
         if redefine_find
@@ -217,7 +216,7 @@ module MongoTranslatable #:nodoc:
               # this will throw a RecordNotFound before executing our code
               # if that is the response
               results = super(*args)
-              
+
               results = translatable_processing_of(results, *args)
             end
           end

@@ -136,8 +136,7 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
 
     should "when the item is destroyed, when it has no translations, it should succeed in being destroyed" do
       assert_equal 0, @item.translations.size
-      assert @it
-em.destroy
+      assert @item.destroy
     end
 
     teardown do
@@ -238,7 +237,6 @@ em.destroy
     should "get translated results from singular accessor" do
       I18n.locale = :fr
       translated_label = Item.find(@item).label
-      p translated_label
       assert_equal translated_label, @comment.item.label
     end
   end
@@ -254,7 +252,7 @@ em.destroy
       @no_find_translation = @record.class::Translation.create(record_hash)
     end
 
-    should "not swap out locale specific translation for record when loaded from a translated locale" do 
+    should "not swap out locale specific translation for record when loaded from a translated locale" do
       I18n.locale = :fr
       @record.reload
       assert_equal 'en', @record.locale
