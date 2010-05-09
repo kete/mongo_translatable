@@ -4,8 +4,10 @@ require 'test_helper'
 class MongodbTranslatableTest < ActiveSupport::TestCase
   context "A translation" do
     setup do
-      @item = Factory.create(:item)
       I18n.locale = I18n.default_locale
+
+      @item = Factory.create(:item)
+
       item_hash = Hash.new
       item_hash[:label] = @item.attributes['label']
       item_hash[:locale] = :fr
@@ -58,7 +60,6 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
     end
 
     should "not create translation if item's original_locale is same as translation locale" do
-      # arabic
       I18n.locale = :en
       @item.translate(:label => LOCALE_LABELS[:en])
       assert @item.translations.count == 0
@@ -77,6 +78,18 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
       @item = Item.find(@item.id)
 
       assert_equal @item.label, LOCALE_LABELS[:fi]
+    end
+
+    should "find item with the proper translation for current locale and fallback to original's value for translatable attribute that hasn't been translated" do
+      translate_item_for_locales(@item, :fi)
+
+      original_description = @item.description
+
+      # reloading item should detect current locale and pass back translated version of object
+      @item = Item.find(@item.id)
+
+      assert_equal @item.label, LOCALE_LABELS[:fi]
+      assert_equal original_description, @item.description
     end
 
     should "find item with the proper translation for current locale when there is more than one translation" do
@@ -193,15 +206,52 @@ em.destroy
     end
   end
 
+  context "A Translatable class that has a plural associated accessors (has_many) in another class through an association" do
+    setup do
+      I18n.locale = I18n.default_locale
+
+      @person = Factory.create(:person)
+      @item1 = Factory.create(:item, :person => @person)
+      @item2 = Factory.create(:item, :person => @person)
+
+      translate_item_for_locales(@item1, :fr)
+    end
+
+    should "get translated results from plural accessor" do
+      I18n.locale = :fr
+      results_with_one_translated_labels = [@item1.reload, @item2].collect(&:label)
+
+      assert_equal results_with_one_translated_labels, @person.items.collect(&:label)
+    end
+  end
+
+  context "A Translatable class that has a singular associated accessor (belongs_to, has_one) in another class through an association" do
+    setup do
+      I18n.locale = I18n.default_locale
+
+      @item = Factory.create(:item, :person => @person)
+      @comment = @item.comments.create(:subject => "usual mallarky")
+
+      translate_item_for_locales(@item, :fr)
+    end
+
+    should "get translated results from singular accessor" do
+      I18n.locale = :fr
+      translated_label = Item.find(@item).label
+      p translated_label
+      assert_equal translated_label, @comment.item.label
+    end
+  end
+
   context "A Translatable class that has redefine_find == false" do
     setup do
-      @record = Factory.create(:not_swapped_in_record)
       I18n.locale = I18n.default_locale
+      @record = Factory.create(:not_swapped_in_record)
       record_hash = Hash.new
       record_hash[:name] = @record.attributes['name']
       record_hash[:locale] = :fr
       record_hash[@record.class.as_foreign_key_sym] = @record.id
-      @translation = @record.class::Translation.create(record_hash)
+      @no_find_translation = @record.class::Translation.create(record_hash)
     end
 
     should "not swap out locale specific translation for record when loaded from a translated locale" do 
@@ -209,7 +259,6 @@ em.destroy
       @record.reload
       assert_equal 'en', @record.locale
     end
-
   end
 
   private

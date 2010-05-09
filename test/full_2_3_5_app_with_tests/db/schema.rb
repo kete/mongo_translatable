@@ -9,13 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100504234216) do
+ActiveRecord::Schema.define(:version => 20100509042718) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "subject"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "items", :force => true do |t|
     t.string   "label",           :null => false
     t.string   "value"
     t.string   "locale"
     t.string   "original_locale"
+    t.string   "description"
+    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,6 +33,12 @@ ActiveRecord::Schema.define(:version => 20100504234216) do
     t.string   "name",            :null => false
     t.string   "locale"
     t.string   "original_locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

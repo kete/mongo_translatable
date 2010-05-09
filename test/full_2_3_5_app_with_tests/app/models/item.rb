@@ -1,3 +1,5 @@
 class Item < ActiveRecord::Base
-  mongo_translate :label
+  belongs_to :person
+  has_many :comments
+  mongo_translate :label, :description
 end

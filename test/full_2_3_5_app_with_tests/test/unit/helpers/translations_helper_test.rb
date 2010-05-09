@@ -47,14 +47,16 @@ class TranslationsHelperTest < ActionView::TestCase
 
     should "take translatable and output internationalized html to display the original text of the attributes" do
       array_with_hashes_of_translatable_attributes_with_internationalized_names = [{:localized_label => "Label", :value => "a label"}]
-      assert_equal array_with_hashes_of_translatable_attributes_with_internationalized_names, untranslated_values_with_localized_labels
+      # ignoring description for now (thus wrapped in array and .first)
+      assert_equal array_with_hashes_of_translatable_attributes_with_internationalized_names, [untranslated_values_with_localized_labels.first]
     end
 
     should "take translation and output internationalized html to display the translated text of the attributes" do
       @translatable.translate(:label => 'une étiquette', :locale => 'fr')
       @translation = @translatable.translation_for(:fr)
       array_with_hashes_of_translated_attributes_with_internationalized_names = [{:localized_label => "Label", :value => "une étiquette"}]
-      assert_equal array_with_hashes_of_translated_attributes_with_internationalized_names, translated_values_with_localized_labels
+      # ignoring description for now (thus wrapped in array and .first)
+      assert_equal array_with_hashes_of_translated_attributes_with_internationalized_names, [translated_values_with_localized_labels.first]
     end
   end
 end
