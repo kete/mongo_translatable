@@ -1,4 +1,4 @@
-<h2 style="margin:0 0 10px 0;"><%= t("translations.index.title", :type => @translated.class.name.downcase.singularize) %></h2>
+<h2 style="margin:0 0 10px 0;"><%= t("translations.index.title", :type => @translated.class.name.titleize.downcase) %></h2>
 
 <ul>
 <% @translations.each do |translation| %>
