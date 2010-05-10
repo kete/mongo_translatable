@@ -1,7 +1,7 @@
 module TranslationsControllerHelpers
   unless included_modules.include? TranslationsControllerHelpers
     def self.included(klass)
-      klass.send :helper_method, :url_for_translated, :target_action
+      klass.send :helper_method, :url_for_translated, :target_action, :target_locale
     end
 
     def target_action(options = {})

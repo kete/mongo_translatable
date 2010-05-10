@@ -11,4 +11,11 @@
 <% end %>
 </ul>
 
-<p><%= link_to(t("translations.index.new"), { :action => :new }) %></p>
+<ul style="list-style:none; padding:0; margin:0;">
+  <li style="float:left; padding: 0 5px;">
+    <%= link_to(t("translations.index.back"), url_for_translated) %>
+  </li>
+  <li style="float:left; padding: 0 5px; border-left: 1px solid #000;">
+    <%= link_to(t("translations.index.new"), { :action => :new }) %>
+  </li>
+</ul>

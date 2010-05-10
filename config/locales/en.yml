@@ -14,6 +14,7 @@ en:
       needs_translating_to: "Needs translating to:"
     index:
       are_you_sure: 'Are you sure?'
+      back: "Back"
       delete: "Delete"
       edit: "Edit"
       new: "New Translation"
