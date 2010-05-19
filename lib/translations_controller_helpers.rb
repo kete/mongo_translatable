@@ -12,15 +12,25 @@ module TranslationsControllerHelpers
       options.delete(:locale) || (@translation.locale if @translation) || I18n.locale
     end
 
+    def target_controller(options = {})
+      options.delete(:controller) || options.delete(:translatable_params_name).pluralize
+    end
+
+    def target_id(options = {})
+      options.delete(:id)
+    end
+
     def url_for_translated(options = { })
       translated = options.delete(:translated) || @translated || @translatable
       translatable_params_name = options.delete(:translatable_params_name) || @translatable_params_name
+      options[:translatable_params_name] = translatable_params_name
+      options[:id] = translated
 
       defaults = {
         :locale => target_locale(options),
-        :controller => translatable_params_name.pluralize,
+        :controller => target_controller(options),
         :action => target_action(options),
-        :id => translated
+        :id => target_id
       }
 
       url_for(defaults.merge(options))
