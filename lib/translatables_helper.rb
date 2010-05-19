@@ -1,5 +1,7 @@
 module TranslatablesHelper
   def available_in_locales_for(translatable, options = {})
+    return if TranslationsHelper.available_locales.size < 2
+      
     html = "<ul style='list-style:none; margin:0; padding:0;'>"
     html += "<li style='float:left;'>#{I18n.t('translations.helpers.available_in')}</li>"
 
@@ -29,6 +31,8 @@ module TranslatablesHelper
   end
 
   def needed_in_locales_for(translatable, options = {})
+    return if TranslationsHelper.available_locales.size < 2
+
     html = "<ul style='list-style:none; margin:0; padding:0;'>"
     html += "<li style='float:left;'>#{I18n.t('translations.helpers.needs_translating_to')}</li>"
 
