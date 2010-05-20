@@ -79,13 +79,13 @@ module TranslatablesHelper
         onComplete: function(transport) {
           var outer_dimensions = document.body.getDimensions();
           var outer_box = Element('div', { 'id': 'translate_outer_box' }).setOpacity(0.8).setStyle({ width: outer_dimensions['width'] + 'px', height: outer_dimensions['height'] + 'px' });
-          var close_link = '<a href=\\'\\' title=\\'Close\\' onclick=\\'close_open_translation_box(); return false;\\'>#{I18n.t('translations.helpers.close_box')}</a>';
+          var close_link = '<a href=\\'\\' name=\\'top\\' title=\\'Close\\' onclick=\\'close_open_translation_box(); return false;\\'>#{I18n.t('translations.helpers.close_box')}</a>';
           var close_box = '<div id=\\'translate_close_box\\'>' + close_link + '</div>';
           var inner_box = Element('div', { 'id': 'translate_inner_box' }).update(close_box + transport.responseText);
           close_open_translation_box();
           document.body.appendChild(outer_box);
           document.body.appendChild(inner_box);
-          window.location.hash = ''; // send us to the top of the page
+          window.location.hash = 'top'; // send us to the top of the translation box
           window.onresize = function() {
             var dimensions = document.body.getDimensions();
             $('translate_outer_box').setStyle({ width: dimensions['width'] + 'px', height: dimensions['height'] + 'px' });
