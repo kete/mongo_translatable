@@ -1,7 +1,7 @@
 module TranslatablesHelper
   def available_in_locales_for(translatable, options = {})
     return if TranslationsHelper.available_locales.size < 2
-      
+
     html = "<ul style='list-style:none; margin:0; padding:0;'>"
     html += "<li style='float:left;'>#{I18n.t('translations.helpers.available_in')}</li>"
 
@@ -77,13 +77,19 @@ module TranslatablesHelper
       new Ajax.Request(element.href, {
         method: 'get',
         onComplete: function(transport) {
-          var outer_box = Element('div', { 'id': 'translate_outer_box' }).setOpacity(0.8);
+          var outer_dimensions = document.body.getDimensions();
+          var outer_box = Element('div', { 'id': 'translate_outer_box' }).setOpacity(0.8).setStyle({ width: outer_dimensions['width'] + 'px', height: outer_dimensions['height'] + 'px' });
           var close_link = '<a href=\\'\\' title=\\'Close\\' onclick=\\'close_open_translation_box(); return false;\\'>#{I18n.t('translations.helpers.close_box')}</a>';
           var close_box = '<div id=\\'translate_close_box\\'>' + close_link + '</div>';
           var inner_box = Element('div', { 'id': 'translate_inner_box' }).update(close_box + transport.responseText);
           close_open_translation_box();
           document.body.appendChild(outer_box);
           document.body.appendChild(inner_box);
+          window.location.hash = ''; // send us to the top of the page
+          window.onresize = function() {
+            var dimensions = document.body.getDimensions();
+            $('translate_outer_box').setStyle({ width: dimensions['width'] + 'px', height: dimensions['height'] + 'px' });
+          }
         }
       });
     }
@@ -91,10 +97,9 @@ module TranslatablesHelper
 
     css = content_tag("style", :type => "text/css") do
       <<-CSS
-      #translate_outer_box { position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: auto;
-                           background-color: #000; }
-      #translate_inner_box { position: absolute; top: 10%; right: 20%; left: 20%; width: 60%; background-color: #fff;
-                           padding: 20px; -moz-border-radius: 1em; -webkit-border-radius: 1em;  }
+      #translate_outer_box { position: absolute; top: 0; left: 0; width: 100%; height: 500px; background-color: #000; }
+      #translate_inner_box { position: absolute; top: 0; left: 0; margin: 50px 20%; padding: 20px; background-color: #fff;
+                             -moz-border-radius: 1em; -webkit-border-radius: 1em; }
       #translate_close_box { float: right; margin-top: -45px; margin-right: -15px; }
       #translate_close_box a { color: #fff; }
       CSS
