@@ -1,12 +1,14 @@
-<div class="translated_value">
-  <span class="label" style="margin-right: 10px;"><%= form.label translation_field, localized_label_for(translation_field) %></span>
-  <span class="value"><%= form.text_field translation_field %></span>
-  <span class='auto_translate' style="font-size:0.8em;">
-    <a href='#' onclick="if (getGoogleTranslation) {
-      getGoogleTranslation(this.up('.translated_value').children[1].down('input').id,
-                           '<%= escape_javascript(h(@original.send(translation_field.to_sym))) %>',
-                           '<%= I18n.locale %>', '<%=h @translation.locale %>');
-      return false;
-    }" title='Auto Translate Using Google'>[auto translate]</a>
-  </span>
-</div>
+<td class="translatable_label" valign="top" style="width: 10%; padding: 5px;">
+  <%= form.label translation_field, localized_label_for(translation_field) %>
+</td>
+<td class="translatable_value" valign="top" style="padding: 5px;">
+  <%= form.text_field translation_field %>
+</td>
+<td class="translatable_auto_translate" valign="top" style="font-size:0.8em;">
+  <a href='#' onclick="if (getGoogleTranslation) {
+    getGoogleTranslation(this.up('.translated_value').children[1].down('input').id,
+                         '<%= escape_javascript(h(@original.send(translation_field.to_sym))) %>',
+                         '<%= I18n.locale %>', '<%=h @translation.locale %>');
+    return false;
+  }" title='Auto Translate Using Google'>[auto translate]</a>
+</td>

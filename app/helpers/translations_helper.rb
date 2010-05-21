@@ -23,8 +23,11 @@ module TranslationsHelper
 
       @original.translatable_attributes.each do |attribute_key|
         value = term == 'untranslated' ? @original[attribute_key] : @translation[attribute_key]
-        values_with_localized_labels << { :localized_label => localized_label_for(attribute_key),
-          :value => value }
+        values_with_localized_labels << {
+          :attribute_key => attribute_key,
+          :localized_label => localized_label_for(attribute_key),
+          :value => value
+        }
       end
 
       values_with_localized_labels

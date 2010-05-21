@@ -37,8 +37,8 @@ class TranslationsController < ApplicationController
     @translation.locale = params[:to_locale].present? ? params[:to_locale] : I18n.locale.to_s
 
     respond_to do |format|
-      format.js { render :layout => false }
       format.html # new.html.erb
+      format.js { render :layout => false } # needs to come after html for IE to work
       format.xml  { render :xml => @translation }
     end
   end

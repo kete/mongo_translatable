@@ -7,17 +7,25 @@
 <%= form.error_messages %>
 <%= form.hidden_field :locale  %>
 
-<div class="original_values" style="float: left; width: 48%; border-right: 1px solid #000;">
-  <h3 style="margin:0 0 10px 0;"><%= TranslationsHelper::available_locales[I18n.locale] %></h3>
-  <%= render :partial => 'translatable_value', :collection => untranslated_values_with_localized_labels -%>
-</div>
+<!-- Use a table instead of floated divs because it gives better results in IE -->
+<table>
+  <tr>
+    <th colspan="2">
+      <h3 style="margin:0 0 10px 0;"><%= TranslationsHelper::available_locales[I18n.locale] %></h3>
+    </th>
+    <th rowspan="<%= @translatable_class.translatable_attributes.size + 1 %>" style="width:1px; border-left: 1px solid #000; padding: 0; margin: 0"></th>
+    <th colspan="3">
+      <h3 style="margin:0 0 10px 0;"><%= TranslationsHelper::available_locales[@translation.locale] %></h3>
+    </th>
+  </tr>
 
-<div class="translated_values" style="float: left; width: 48%; margin-left: 2%;">
-  <h3 style="margin:0 0 10px 0;"><%= TranslationsHelper::available_locales[@translation.locale] %></h3>
-  <%= render :partial => 'translation_field', :collection => @translatable_class.translatable_attributes, :locals => { :form => form } -%>
-</div>
-
-<div style="clear:both;"></div>
+  <% @translatable_class.translatable_attributes.each do |attribute_key| %>
+    <tr>
+      <%= render 'translatable_value', :translatable_value => untranslated_values_with_localized_labels.find { |l| l[:attribute_key] == attribute_key } %>
+      <%= render 'translation_field', :form => form, :translation_field => attribute_key %>
+    </tr>
+  <% end %>
+</table>
 
 <div class="make_translation" style="text-align: center; margin-top: 20px; margin-right: 4%;">
   <%= form.submit @button_text %>
