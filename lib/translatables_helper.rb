@@ -98,8 +98,8 @@ module TranslatablesHelper
     css = content_tag("style", :type => "text/css") do
       <<-CSS
       #translate_outer_box { position: absolute; top: 0; left: 0; width: 100%; height: 500px; background-color: #000; }
-      #translate_inner_box { position: absolute; top: 0; left: 0; margin: 50px 20%; padding: 20px; background-color: #fff;
-                             -moz-border-radius: 1em; -webkit-border-radius: 1em; }
+      #translate_inner_box { position: absolute; top: 0; left: 15%; right: 15%; margin: 50px auto; padding: 20px;
+                             background-color: #fff; -moz-border-radius: 1em; -webkit-border-radius: 1em; }
       #translate_close_box { float: right; margin-top: -45px; margin-right: -15px; }
       #translate_close_box a { color: #fff; }
       CSS
