@@ -6,7 +6,7 @@
 </td>
 <td class="translatable_auto_translate" valign="top" style="font-size:0.8em;">
   <a href='#' onclick="if (getGoogleTranslation) {
-    getGoogleTranslation(this.up('.translated_value').children[1].down('input').id,
+    getGoogleTranslation(this.up('tr').down('.translatable_value').down('input').id,
                          '<%= escape_javascript(h(@original.send(translation_field.to_sym))) %>',
                          '<%= I18n.locale %>', '<%=h @translation.locale %>');
     return false;
