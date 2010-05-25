@@ -73,12 +73,21 @@ module TranslatablesHelper
       if ($('translate_inner_box')) { $('translate_inner_box').remove(); }
     }
 
+    function page_dimensions() {
+      var html_dimensions = $$('html').first().getDimensions();
+      var body_dimensions = document.body.getDimensions();
+
+      var dimensions = new Array();
+      dimensions['width'] = (html_dimensions['width'] > body_dimensions['width'] ? html_dimensions['width'] : body_dimensions['width'])
+      dimensions['height'] = (html_dimensions['height'] > body_dimensions['height'] ? html_dimensions['height'] : body_dimensions['height'])
+      return dimensions;
+    }
+
     function update_translation_box(element) {
       new Ajax.Request(element.href, {
         method: 'get',
         onComplete: function(transport) {
-          var outer_dimensions = document.body.getDimensions();
-          var outer_box = new Element('div', { 'id': 'translate_outer_box' }).setOpacity(0.8).setStyle({ width: outer_dimensions['width'] + 'px', height: outer_dimensions['height'] + 'px' });
+          var outer_box = new Element('div', { 'id': 'translate_outer_box' }).setOpacity(0.8).setStyle({ width: page_dimensions()['width'] + 'px', height: page_dimensions()['height'] + 'px' });
           var close_link = '<a href=\\'\\' name=\\'top\\' title=\\'Close\\' onclick=\\'close_open_translation_box(); return false;\\'>#{I18n.t('translations.helpers.close_box')}</a>';
           var close_box = '<div id=\\'translate_close_box\\'>' + close_link + '</div>';
           var inner_box = new Element('div', { 'id': 'translate_inner_box' }).update(close_box + transport.responseText);
@@ -87,8 +96,7 @@ module TranslatablesHelper
           document.body.appendChild(inner_box);
           window.location.hash = 'top'; // send us to the top of the translation box
           window.onresize = function() {
-            var dimensions = document.body.getDimensions();
-            $('translate_outer_box').setStyle({ width: dimensions['width'] + 'px', height: dimensions['height'] + 'px' });
+            $('translate_outer_box').setStyle({ width: page_dimensions()['width'] + 'px', height: page_dimensions()['height'] + 'px' });
           }
         }
       });
@@ -97,7 +105,7 @@ module TranslatablesHelper
 
     css = content_tag("style", :type => "text/css") do
       <<-CSS
-      #translate_outer_box { position: absolute; top: 0; left: 0; width: 100%; height: 500px; background-color: #000; }
+      #translate_outer_box { position: absolute; top: 0; left: 0; width: 100%; min-height: 500px; background-color: #000; }
       #translate_inner_box { position: absolute; top: 0; left: 15%; right: 15%; margin: 50px auto; padding: 20px;
                              background-color: #fff; -moz-border-radius: 1em; -webkit-border-radius: 1em; }
       #translate_close_box { float: right; margin-top: -45px; margin-right: -15px; }
