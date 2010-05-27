@@ -62,6 +62,10 @@ module TranslationsHelper
     list = '<ul>' + '<li>' + list.join('</li><li>') + '</li>' + '</ul>'
   end
 
+  def translatable_field_a_text_area?(form, translation_field)
+    form.object.translatable_class.columns_hash[translation_field.to_s].type == :text
+  end
+
   private
   def set_original
     @original ||= @translatable || @translated

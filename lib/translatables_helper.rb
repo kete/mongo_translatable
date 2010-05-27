@@ -78,8 +78,8 @@ module TranslatablesHelper
       var body_dimensions = document.body.getDimensions();
 
       var dimensions = new Array();
-      dimensions['width'] = (html_dimensions['width'] > body_dimensions['width'] ? html_dimensions['width'] : body_dimensions['width'])
-      dimensions['height'] = (html_dimensions['height'] > body_dimensions['height'] ? html_dimensions['height'] : body_dimensions['height'])
+      dimensions['width'] = (html_dimensions['width'] > body_dimensions['width'] ? html_dimensions['width'] : body_dimensions['width']);
+      dimensions['height'] = (html_dimensions['height'] > body_dimensions['height'] ? html_dimensions['height'] : body_dimensions['height']);
       return dimensions;
     }
 

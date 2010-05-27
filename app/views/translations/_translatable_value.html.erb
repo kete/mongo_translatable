@@ -1,6 +1,17 @@
-<td class="original_label" valign="top" style="width: 10%; padding: 5px;">
-  <%= h(translatable_value[:localized_label]) -%>
-</td>
-<td class="original_value" valign="top" style="padding: 5px;">
-  <%= h(translatable_value[:value]) -%>
-</td>
+<% if translatable_field_a_text_area?(form, untranslated_value[:attribute_key]) %>
+
+  <td colspan="2" class="original_label_and_value" valign="top" style="padding: 5px;">
+    <%= h(untranslated_value[:localized_label]) -%><br />
+    <%= h(untranslated_value[:value]) -%>
+  </td>
+
+<% else %>
+
+  <td class="original_label" valign="top" style="width: 10%; padding: 5px;">
+    <%= h(untranslated_value[:localized_label]) -%>
+  </td>
+  <td class="original_value" valign="top" style="padding: 5px;">
+    <%= h(untranslated_value[:value]) -%>
+  </td>
+
+<% end %>

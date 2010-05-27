@@ -1,14 +1,27 @@
-<td class="translatable_label" valign="top" style="width: 10%; padding: 5px;">
-  <%= form.label translation_field, localized_label_for(translation_field) %>
-</td>
-<td class="translatable_value" valign="top" style="padding: 5px;">
-  <%= form.text_field translation_field %>
-</td>
-<td class="translatable_auto_translate" valign="top" style="font-size:0.8em;">
-  <a href='#' onclick="if (getGoogleTranslation) {
-    getGoogleTranslation(this.up('tr').down('.translatable_value').down('input').id,
-                         '<%= escape_javascript(h(@original.send(translation_field.to_sym))) %>',
-                         '<%= I18n.locale %>', '<%=h @translation.locale %>');
-    return false;
-  }" title='Auto Translate Using Google'>[auto translate]</a>
-</td>
+<% locals = { :form => form, :untranslated_value => untranslated_value, :attribute_key => attribute_key } %>
+
+<% if translatable_field_a_text_area?(form, attribute_key) %>
+
+  <td colspan="3" class="translatable_label_and_field" valign="top" style="padding: 5px;">
+    <%= form.label attribute_key, localized_label_for(attribute_key) %><br />
+    <%= render 'translation_field_input', locals %>
+  </td>
+
+<% else %>
+
+  <td class="translatable_label" valign="top" style="width: 10%; padding: 5px;">
+    <%= form.label attribute_key, localized_label_for(attribute_key) %>
+  </td>
+  <td class="translatable_value" valign="top" style="padding: 5px;">
+    <%= render 'translation_field_input', locals %>
+  </td>
+  <td class="translatable_auto_translate" valign="top" style='font-size:0.8em;'>
+    <a href='#' onclick="if (getGoogleTranslation) {
+      getGoogleTranslation(this.up('tr').down('.translatable_value').down('input').id,
+                           '<%= escape_javascript(h(untranslated_value[:value])) %>',
+                           '<%= I18n.locale %>', '<%=h @translation.locale %>');
+      return false;
+    }" title='Auto Translate Using Google'>[auto translate]</a>
+  </td>
+
+<% end %>

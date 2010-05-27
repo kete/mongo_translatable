@@ -1,0 +1,8 @@
+<%# assign the value of the untranslated field if this record is a new object %>
+<% form.object.send("#{attribute_key}=", untranslated_value[:value]) if form.object.new_record? %>
+
+<% if translatable_field_a_text_area?(form, attribute_key) %>
+  <%= form.text_area attribute_key, :rows => 7, :cols => 35 %>
+<% else %>
+  <%= form.text_field attribute_key %>
+<% end %>
