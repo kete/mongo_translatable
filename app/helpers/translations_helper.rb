@@ -16,22 +16,20 @@ module TranslationsHelper
     define_method(term + '_values_with_localized_labels') do
       set_original
       raise "No object supplied to translate." if @original.blank?
-
       raise "No matching translation available." if term == 'translated' && @translation.blank?
 
-      values_with_localized_labels = Array.new
-
-      @original.translatable_attributes.each do |attribute_key|
-        value = term == 'untranslated' ? @original[attribute_key] : @translation[attribute_key]
-        values_with_localized_labels << {
-          :attribute_key => attribute_key,
+      @original.translatable_attributes.collect do |attribute_key|
+        value = (term == 'untranslated') ? @original[attribute_key] : @translation[attribute_key]
+        { :attribute_key => attribute_key,
           :localized_label => localized_label_for(attribute_key),
-          :value => value
-        }
+          :value => modify_translation_value(value, @original) }
       end
-
-      values_with_localized_labels
     end
+  end
+
+  # We don't do anything here, just provide it for users to if they need it
+  def modify_translation_value(value, original_object)
+    value
   end
 
   def localized_label_for(attribute_key)

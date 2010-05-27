@@ -32,9 +32,7 @@ class TranslationsController < ApplicationController
   # GET /translations/new
   # GET /translations/new.xml
   def new
-    @translation = @translatable.class::Translation.new
-
-    @translation.locale = params[:to_locale].present? ? params[:to_locale] : I18n.locale.to_s
+    @translation = @translatable.translate(:locale => (params[:to_locale] || I18n.locale.to_s))
 
     respond_to do |format|
       format.html # new.html.erb
@@ -52,7 +50,6 @@ class TranslationsController < ApplicationController
   # POST /translations.xml
   def create
     translation_params = params[:translation] || params[@translatable_params_name + '_translation']
-    translation_params[:save] = false
     @translation = @translatable.translate(translation_params)
 
     respond_to do |format|

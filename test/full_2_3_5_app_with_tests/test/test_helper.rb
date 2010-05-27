@@ -15,7 +15,7 @@ end
 
 LOCALE_LABELS = { :en => "a label",
   :ar => "تسمية",
-  :fi => "etiketissä", 
+  :fi => "etiketissä",
   :fr => "une étiquette",
   :zh => "標籤"}
 
@@ -33,7 +33,7 @@ class ActiveSupport::TestCase
   # don't care one way or the other, switching from MyISAM to InnoDB tables
   # is recommended.
   #
-  # The only drawback to using transactional fixtures is when you actually 
+  # The only drawback to using transactional fixtures is when you actually
   # need to test transactions.  Since your test is bracketed by a transaction,
   # any transactions started in your code will be automatically rolled back.
   # self.use_transactional_fixtures = true
@@ -80,7 +80,7 @@ def translate_item_for_locales(item, locales)
   locales = [locales] unless locales.is_a?(Array)
   locales.each do |locale|
     I18n.locale = locale
-    item.translate(:label => LOCALE_LABELS[locale])
+    item.translate(:label => LOCALE_LABELS[locale]).save
   end
 end
 

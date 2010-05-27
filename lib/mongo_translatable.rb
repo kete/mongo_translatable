@@ -25,7 +25,7 @@ module MongoTranslatable #:nodoc:
   #   p item.label
   #   "a label"
   #
-  #   item.translate(:label => "etiketissä", :locale => :fi)
+  #   item.translate(:label => "etiketissä", :locale => :fi).save
   ## or you could have set I18n.locale = :fi in calling env and dropped locale from args
   #
   #   I18n.locale = :fi
@@ -248,17 +248,20 @@ module MongoTranslatable #:nodoc:
         self.class::Translation.first(self.class.as_foreign_key_sym => id, :locale => locale)
       end
 
-      # this will create a new translation
+      # this will create a new translation (but won't save it)
       # with either passed in options
       # note that we don't save the changes to self
       # only the new translation
       # will return nothing if translate to locale
       # is the same as the object to translate's original locale
       def translate(options = {})
-        translation_locale = options[:locale].present? ? options[:locale] : I18n.locale
-        should_save = options[:save].present? ? options[:save] : true
+        translation_locale = options[:locale] || I18n.locale
 
-        @translation = self.class::Translation.new
+        @translation = self.class::Translation.new({
+          :locale => translation_locale,
+          :translatable_locale => self.locale, # save original locale
+          self.class.as_foreign_key_sym => id
+        })
 
         if translation_locale.to_s == original_locale.to_s
           # TODO: locale's emptiness is the reported error
@@ -268,27 +271,12 @@ module MongoTranslatable #:nodoc:
         else
           # work through self and replace attributes
           # with the passed in translations for defined translatable_attributes
-          translated_attributes = Hash.new
           self.class.translatable_attributes.each do |translated_attribute|
             translated_value = options[translated_attribute]
-
-            next unless translated_value
-
-            translated_attributes[translated_attribute] = translated_value
-          end
-
-          # only create a translation if actual translation was done
-          # if changed?
-          unless translated_attributes.blank?
-            translated_attributes[:locale] = translation_locale
-            # save original locale
-            translated_attributes[:translatable_locale] = locale
-            translated_attributes[self.class.as_foreign_key_sym] = id
-
-            @translation = self.class::Translation.new(translated_attributes)
+            @translation.send("#{translated_attribute.to_sym}=", translated_value) if translated_value.present?
           end
         end
-        @translation.save if should_save
+
         @translation
       end
 

@@ -28,7 +28,7 @@ class TranslationsControllerTest < ActionController::TestCase
 
     context "when there is an existing translation" do
       setup do
-        @item.translate(:label => 'une étiquette', :locale => 'fr')
+        @item.translate(:label => 'une étiquette', :locale => 'fr').save
         @translation_1 = @item.translations.first
       end
 

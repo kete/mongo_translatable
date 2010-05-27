@@ -28,7 +28,7 @@ class TranslationsHelperTest < ActionView::TestCase
     end
 
     should "have provide available_in_locales that returns current translations for @translatable as list" do
-      @translatable.translate(:label => 'une étiquette', :locale => 'fr')
+      @translatable.translate(:label => 'une étiquette', :locale => 'fr').save
       html = "<ul><li><a href=\"http://test.host/en/items/1\">English</a></li><li><a href=\"http://test.host/fr/items/1\">Français</a></li></ul>"
       assert_equal html, available_in_locales
     end
@@ -52,7 +52,7 @@ class TranslationsHelperTest < ActionView::TestCase
     end
 
     should "take translation and output internationalized html to display the translated text of the attributes" do
-      @translatable.translate(:label => 'une étiquette', :locale => 'fr')
+      @translatable.translate(:label => 'une étiquette', :locale => 'fr').save
       @translation = @translatable.translation_for(:fr)
       array_with_hashes_of_translated_attributes_with_internationalized_names = [{:localized_label => "Label", :value => "une étiquette"}]
       # ignoring description for now (thus wrapped in array and .first)

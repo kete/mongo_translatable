@@ -18,7 +18,7 @@ class TranslatablesHelperTest < ActionView::TestCase
 
     # TODO: current request need to be in environment for this to run
     should "have provide available_in_locales_for that returns current translations for passed in item as list" do
-      @item.translate(:label => 'une étiquette', :locale => 'fr')
+      @item.translate(:label => 'une étiquette', :locale => 'fr').save
       html = "<ul><li><a href=\"/fr/items/1\">Français</li></ul>"
       assert_equal html, available_in_locales_for(@item)
     end
