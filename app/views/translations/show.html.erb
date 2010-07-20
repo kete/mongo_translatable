@@ -1,5 +1,5 @@
 <ul>
-<% untranslated_values_with_localized_labels.each do |translatable_value| %>
+<% translated_values_with_localized_labels.each do |translatable_value| %>
   <li><%= translatable_value[:localized_label] %>
     <% if translatable_value[:value] -%>
       <ul><li><%= translatable_value[:value] -%></li></ul>
