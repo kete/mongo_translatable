@@ -1,8 +1,12 @@
-<table style="width:98%;">
-  <% untranslated_values_with_localized_labels.each do |translatable_value| %>
-    <tr><%= render 'translatable_value', :translatable_value => translatable_value -%></tr>
+<ul>
+<% untranslated_values_with_localized_labels.each do |translatable_value| %>
+  <li><%= translatable_value[:localized_label] %>
+    <% if translatable_value[:value] -%>
+      <ul><li><%= translatable_value[:value] -%></li></ul>
+    <% end %>
+  </li>
   <% end %>
-</table>
+</ul>
 
 <%= link_to(t('translations.show.edit'), { :id => h(@translation.locale), :action => :edit }) %> |
 <%= link_to(t('translations.show.translations'), { :action => :index }) %>
