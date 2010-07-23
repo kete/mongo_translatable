@@ -86,11 +86,12 @@ class TranslationsController < ApplicationController
   # DELETE /translations/1
   # DELETE /translations/1.xml
   def destroy
+    return_to = params[:return_to_translated].present? && params[:return_to_translated] ? url_for_translated : { :action =>:index }
     @translation.destroy
 
     respond_to do |format|
       flash[:notice] = t('translations.controllers.deleted')
-      format.html { redirect_to :action => :index }
+      format.html { redirect_to return_to }
       format.xml  { head :ok }
     end
   end

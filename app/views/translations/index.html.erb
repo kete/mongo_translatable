@@ -1,4 +1,5 @@
-<h2 style="margin:0 0 10px 0;"><%= t("translations.index.title", :type => @translated.class.name.titleize.downcase) %></h2>
+<% type = @translated.class.name.titleize.downcase -%>
+<h2 style="margin:0 0 10px 0;"><%= t("translations.index.title", :type => type) -%></h2>
 
 <ul>
 <% @translations.each do |translation| %>
@@ -13,7 +14,7 @@
 
 <ul style="list-style:none; padding:0; margin:0;">
   <li style="float:left; padding: 0 5px;">
-    <%= link_to(t("translations.index.back"), url_for_translated) %>
+    <%= link_to(t("translations.index.back", :type => type), url_for_translated) %>
   </li>
   <li style="float:left; padding: 0 5px; border-left: 1px solid #000;">
     <%= link_to(t("translations.index.new"), { :action => :new }) %>

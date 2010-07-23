@@ -5,6 +5,7 @@ module TranslatablesHelper
     html = "<ul style='list-style:none; margin:0; padding:0;'>"
     html += "<li style='float:left;'>#{I18n.t('translations.helpers.available_in')}</li>"
 
+    translated_in_locales = Array.new
     translatable.available_in_these_locales.each_with_index do |locale, index|
       styles = "float: left; padding: 0 5px; #{'border-left: 1px solid #000' unless index == 0}"
       onclick = 'update_translation_box(this); return false' if options[:lightbox]
@@ -13,14 +14,39 @@ module TranslatablesHelper
           url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params))),
           { :onclick => onclick })
       end
+      translated_in_locales << locale unless locale == translatable.original_locale
     end
 
-    manage_link = link_to(I18n.t('translations.helpers.manage'), {
-      :controller => :translations, :action => :index,
-      translatable_key_from(translatable) => translatable
+    manage_links = link_to(I18n.t('translations.helpers.manage'), {
+                             :controller => :translations,
+                             :action => :index,
+                             translatable_key_from(translatable) => translatable
     })
 
-    html += "<li style='float:left; padding-left: 25px;'>(#{manage_link})</li>"
+    # we only have one locale beyond the original locale
+    # just give its edit and delete links
+    if translated_in_locales.size == 1
+      manage_links = link_to(I18n.t('translations.helpers.edit'), {
+                               :controller => :translations,
+                               :action => :edit,
+                               :id => translated_in_locales.first,
+                               translatable_key_from(translatable) => translatable
+                             })
+      manage_links += " | " + link_to(I18n.t('translations.helpers.delete'), {
+                                        :controller => :translations,
+                                        :action => :destroy,
+                                        :id => translated_in_locales.first,
+                                        :return_to_translated => true,
+                                         translatable_key_from(translatable) => translatable
+                                       }, {
+                                        :method => :delete,
+                                        :confirm => t('translations.helpers.are_you_sure') })
+    end
+
+    if translated_in_locales.size > 0
+      html += "<li style='float:left; padding-left: 25px;'>(#{manage_links})</li>"
+    end
+
     html += '</ul>'
     html += "<div style='clear:both;'></div>"
 

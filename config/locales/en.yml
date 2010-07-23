@@ -8,13 +8,16 @@ en:
       locale: "Choose language"
       translate_from_and_to: "Translate from {{from}} to {{to}}"
     helpers:
+      are_you_sure: 'Are you sure?'
       available_in: "Available in:"
       close_box: "[close]"
+      delete: "delete"
+      edit: "edit"
       manage: "manage"
       needs_translating_to: "Needs translating to:"
     index:
       are_you_sure: 'Are you sure?'
-      back: "Back"
+      back: "Return to {{type}}"
       delete: "Delete"
       edit: "Edit"
       new: "New Translation"
