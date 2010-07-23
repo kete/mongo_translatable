@@ -118,6 +118,7 @@ module TranslatablesHelper
   end
 
   def google_auto_translatable_js
+    return unless MongoTranslatableConfiguration.provide_autotranslate
     return if @google_auto_translatable_js_inserted
 
     js = javascript_include_tag("http://www.google.com/jsapi?format=")

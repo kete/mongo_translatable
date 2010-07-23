@@ -16,6 +16,8 @@
     <%= render 'translation_field_input', locals %>
   </td>
   <td class="translatable_auto_translate" valign="top" style='font-size:0.8em;'>
+    <% if MongoTranslatableConfiguration.provide_autotranslate -%>
+
     <span class="translate_link_span"></span>
     <% translate_link = link_to('[auto translate]', '#', :title => 'Auto Translate Using Google', :class => 'translate_link') %>
     <%= javascript_tag("
@@ -26,6 +28,7 @@
                            '#{I18n.locale}', '#{h(@translation.locale)}');
       event.stop();
     });") %>
+     <% end -%>
   </td>
 
 <% end %>
