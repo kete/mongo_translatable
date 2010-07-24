@@ -24,7 +24,13 @@
       <% untranslated_value = untranslated_values_with_localized_labels.find { |l| l[:attribute_key] == attribute_key }
       locals = { :form => form, :untranslated_value => untranslated_value } %>
       <%= render 'translatable_value', locals %>
-      <%= render 'translation_field', locals.merge(:attribute_key => attribute_key) %>
+      <% if untranslated_value[:value].present? -%>
+        <%= render 'translation_field', locals.merge(:attribute_key => attribute_key) %>
+      <% else -%>
+        <td colspan="3" class="translatable_label_and_field" valign="top" style="padding: 5px;">
+	  <%= I18n.t('translations.form.original_has_no_value') -%>
+	</td>
+      <% end -%>
     </tr>
   <% end %>
 </table>

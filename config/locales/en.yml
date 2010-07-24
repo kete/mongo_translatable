@@ -6,6 +6,7 @@ en:
       update: "Update"
     form:
       locale: "Choose language"
+      original_has_no_value: "This field cannot be translated, as the original does not have a value for it."
       translate_from_and_to: "Translate from {{from}} to {{to}}"
     helpers:
       are_you_sure: 'Are you sure?'
