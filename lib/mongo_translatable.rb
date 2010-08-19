@@ -156,7 +156,7 @@ module MongoTranslatable #:nodoc:
               if translated.present?
                 self.translatable_attributes.each do |translated_attribute|
                   unless translated.attributes[translated_attribute].blank?
-                    result.send(translated_attribute.to_s + "=", translated.attributes[translated_attribute])
+                    result.set_translation_for_this(translated_attribute, translated.attributes[translated_attribute])
                   end
                 end
                 result.locale = translated.locale
@@ -190,7 +190,7 @@ module MongoTranslatable #:nodoc:
                 if matching_translation
                   translatable_attributes.each do |key|
                     unless matching_translation.attributes[key].blank?
-                      result.send(key.to_s + "=", matching_translation.attributes[key])
+                      result.set_translation_for_this(key, matching_translation.attributes[key])
                     end
                   end
 
@@ -224,6 +224,12 @@ module MongoTranslatable #:nodoc:
       end
     end
     module InstanceMethods
+      # this will replace specified attribute with its translated value
+      # taks an attribute name as a string or symbol
+      def set_translation_for_this(attribute_name, translated_value)
+        send(attribute_name.to_s + "=", translated_value)
+      end
+
       def translations
         self.class::Translation.all(self.class.as_foreign_key_sym => id)
       end
