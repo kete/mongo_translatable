@@ -92,6 +92,19 @@ module MongoTranslatable #:nodoc:
 
           before_save :locale_to_string
 
+          # for classes that have dynamic translatable_attributes
+          # add definition of keys for mongo_translatable Translation class, if not already defined
+          # add accessor methods, too, if not already defined
+          def self.update_keys_if_necessary_with(new_translatable_attributes)
+            new_translatable_attributes.each do |attribute|
+              unless keys.include?(attribute.to_s)
+                class_eval do
+                  key attribute, String
+                end
+              end
+            end
+          end
+
           # TODO: add validation for locale unique to translatable_class.as_foreign_key_sym scope
           # not implemented in mongo mapper yet
 
@@ -224,6 +237,16 @@ module MongoTranslatable #:nodoc:
       end
     end
     module InstanceMethods
+      # for classes that have dynamice translatable attributes, we may need to update
+      # accessor methods for a dynamic translatable attribute
+      def update_translation_for_methods_if_necessary_with(new_translatable_attributes)
+        new_translatable_attributes.each do |attribute|
+          unless respond_to?("#{attribute.to_s}_translation_for".to_sym)
+            self.class.define_translation_accessor_method_for(attribute)
+          end
+        end
+      end
+
       # this will replace specified attribute with its translated value
       # taks an attribute name as a string or symbol
       def set_translation_for_this(attribute_name, translated_value)
@@ -277,7 +300,7 @@ module MongoTranslatable #:nodoc:
         else
           # work through self and replace attributes
           # with the passed in translations for defined translatable_attributes
-          self.class.translatable_attributes.each do |translated_attribute|
+          translatable_attributes.each do |translated_attribute|
             translated_value = options[translated_attribute]
             @translation.send("#{translated_attribute.to_sym}=", translated_value) if translated_value.present?
           end

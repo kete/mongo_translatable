@@ -19,7 +19,8 @@
     </th>
   </tr>
 
-  <% @translatable_class.translatable_attributes.each do |attribute_key| %>
+  <% translatable_attributes = @translatable.present? ? @translatable.translatable_attributes : @translated.translatable_attributes %>
+  <% translatable_attributes.each do |attribute_key| %>
     <tr>
       <% untranslated_value = untranslated_values_with_localized_labels.find { |l| l[:attribute_key] == attribute_key }
       locals = { :form => form, :untranslated_value => untranslated_value } %>
