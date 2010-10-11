@@ -4,6 +4,23 @@ Rails specific I18n model localization meant to tie-in to existing ActiveRecord 
 
 If you are interested in pure MongoDB localization (your model is MongoMapper::Document, for example), check out http://github.com/ahe/mongo_translation.
 
+== Installation
+
+You need to have mongodb installed and running.
+
+Get source from git and checkout submodules:
+  git clone http://github.com/kete/mongo_translatable.git
+  cd mongo_translatable
+  git submodule init
+  git submodule update
+
+Installing Gem:
+  rake gemspec
+  gem build {generated gemspec file}
+  gem install {generated gem file}
+ 
+  Running rake will check that you have the dependencies installed correctly.
+  
 == Note on Patches/Pull Requests
 
 * Fork the project.
