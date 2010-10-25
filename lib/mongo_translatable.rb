@@ -167,7 +167,7 @@ module MongoTranslatable #:nodoc:
               # look up translation and swap in its attributes for result
               translated = result.translation_for(I18n.locale)
               if translated.present?
-                self.translatable_attributes.each do |translated_attribute|
+                result.translatable_attributes.each do |translated_attribute|
                   unless translated.attributes[translated_attribute].blank?
                     result.set_translation_for_this(translated_attribute, translated.attributes[translated_attribute])
                   end
@@ -201,7 +201,7 @@ module MongoTranslatable #:nodoc:
                 matching_translation = translations.select { |t| t[as_foreign_key_sym] == result.id }.first
 
                 if matching_translation
-                  translatable_attributes.each do |key|
+                  result.translatable_attributes.each do |key|
                     unless matching_translation.attributes[key].blank?
                       result.set_translation_for_this(key, matching_translation.attributes[key])
                     end
