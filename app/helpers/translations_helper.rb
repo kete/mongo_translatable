@@ -19,7 +19,7 @@ module TranslationsHelper
       raise "No matching translation available." if term == 'translated' && @translation.blank?
 
       @original.translatable_attributes.collect do |attribute_key|
-        value = (term == 'untranslated') ? @original[attribute_key] : @translation[attribute_key]
+        value = (term == 'untranslated') ? @original.send(attribute_key) : @translation[attribute_key]
         { :attribute_key => attribute_key,
           :localized_label => localized_label_for(attribute_key),
           :value => modify_translation_value(value, @original) }
