@@ -4,14 +4,16 @@ module TranslatablesHelper
 
     html = "<ul style='list-style:none; margin:0; padding:0;'>"
     html += "<li style='float:left;'>#{I18n.t('translations.helpers.available_in')}</li>"
+    options[:params] ||= {}
 
     translated_in_locales = Array.new
     translatable.available_in_these_locales.each_with_index do |locale, index|
       styles = "float: left; padding: 0 5px; #{'border-left: 1px solid #000' unless index == 0}"
       onclick = 'update_translation_box(this); return false' if options[:lightbox]
+
       html += content_tag(:li, :style => styles) do
         link_to_unless_current(TranslationsHelper::available_locales[locale],
-          url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params))),
+          url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params))).merge(options[:params]),
           { :onclick => onclick })
       end
       translated_in_locales << locale unless locale == translatable.original_locale
@@ -31,14 +33,14 @@ module TranslatablesHelper
                                :action => :edit,
                                :id => translated_in_locales.first,
                                translatable_key_from(translatable) => translatable
-                             })
+                             }.merge(options[:params]))
       manage_links += " | " + link_to(I18n.t('translations.helpers.delete'), {
                                         :controller => :translations,
                                         :action => :destroy,
                                         :id => translated_in_locales.first,
                                         :return_to_translated => true,
                                          translatable_key_from(translatable) => translatable
-                                       }, {
+                                       }.merge(options[:params]), {
                                         :method => :delete,
                                         :confirm => t('translations.helpers.are_you_sure') })
     end
@@ -68,12 +70,13 @@ module TranslatablesHelper
     needed_locales.each_with_index do |locale, index|
       styles = "float: left; padding: 0 10px; #{'border-left: 1px solid #000' unless index == 0}"
       onclick = 'update_translation_box(this); return false' if options[:lightbox]
+      options[:params] ||= {}
       html += content_tag(:li, :style => styles) do
         link_to(TranslationsHelper::available_locales[locale],
                 { :action => :new,
                 :controller => :translations,
                 translatable_key_from(translatable) => translatable,
-                :to_locale => locale }, { :onclick => onclick })
+                :to_locale => locale }.merge(options[:params]), { :onclick => onclick })
       end
     end
 
