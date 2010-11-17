@@ -13,7 +13,7 @@ module TranslatablesHelper
 
       html += content_tag(:li, :style => styles) do
         link_to_unless_current(TranslationsHelper::available_locales[locale],
-          url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params))).merge(options[:params]),
+          url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params))),
           { :onclick => onclick })
       end
       translated_in_locales << locale unless locale == translatable.original_locale
@@ -64,19 +64,13 @@ module TranslatablesHelper
     html = "<ul style='list-style:none; margin:0; padding:0;'>"
     html += "<li style='float:left;'>#{I18n.t('translations.helpers.needs_translating_to')}</li>"
 
-    needed_locales = translatable.needed_in_these_locales
-    return unless needed_locales.any?
+    needed_locales_links = needed_in_locales_links(translatable, options)
+    return if needed_locales_links.blank?
 
-    needed_locales.each_with_index do |locale, index|
+    needed_locales_links.each_with_index do |link, index|
       styles = "float: left; padding: 0 10px; #{'border-left: 1px solid #000' unless index == 0}"
-      onclick = 'update_translation_box(this); return false' if options[:lightbox]
-      options[:params] ||= {}
       html += content_tag(:li, :style => styles) do
-        link_to(TranslationsHelper::available_locales[locale],
-                { :action => :new,
-                :controller => :translations,
-                translatable_key_from(translatable) => translatable,
-                :to_locale => locale }.merge(options[:params]), { :onclick => onclick })
+        link
       end
     end
 
@@ -87,6 +81,27 @@ module TranslatablesHelper
     google_auto_translatable_js
 
     html
+  end
+
+  def needed_in_locales_links(translatable, options = {})
+    return if TranslationsHelper.available_locales.size < 2
+    needed_locales = translatable.needed_in_these_locales
+    return unless needed_locales.any?
+    options[:params] ||= {}
+    links = needed_locales.collect do |locale|
+      onclick = 'update_translation_box(this); return false' if options[:lightbox]
+      link_to(TranslationsHelper::available_locales[locale],
+              { :action => :new,
+                :controller => :translations,
+                translatable_key_from(translatable) => translatable,
+                :to_locale => locale }.merge(options[:params]), { :onclick => onclick })
+    end
+    links
+  end
+
+
+  def available_in_locales_links(translatable, options = {})
+    return if TranslationsHelper.available_locales.size < 2
   end
 
   def translatable_key_from(translatable)
