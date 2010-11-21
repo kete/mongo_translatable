@@ -100,8 +100,32 @@ module TranslatablesHelper
   end
 
 
-  def available_in_locales_links(translatable, options = {})
-    return if TranslationsHelper.available_locales.size < 2
+  #Links to all locales
+  def raw_locale_links(options = {})
+     links = TranslationsHelper::available_locales.keys.collect do |locale|
+        link_to_unless_current(TranslationsHelper::available_locales[locale],
+          url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params)))
+        )
+     end
+     links
+  end
+
+  #Translate link for the given locale
+  def translate_link(translatable, options = {})
+    options[:params] ||= {}
+    options[:params][:onclick] = 'update_translation_box(this); return false' if options[:lightbox]
+    #TODO tidy this up, make lightbox part of the basic params hash.
+    action = translatable.translation_for(params[:locale]) ? :edit : :new
+    options[:params][:id] = params[:locale] if action == :edit
+    if translatable.original_locale == params[:locale]
+      ""
+    else
+      link_to(I18n.t('translations.helpers.translate'),
+              { :action => action,
+                :controller => :translations,
+                translatable_key_from(translatable) => translatable,
+                :to_locale => params[:locale] }.merge(options[:params]))
+    end
   end
 
   def translatable_key_from(translatable)
