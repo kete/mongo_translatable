@@ -2,13 +2,22 @@
 
 Rails specific I18n model localization meant to tie-in to existing ActiveRecord models, ala Globalize2, backed by MongoDB rather than an RDBMS. May include UI elements, too.
 
+This is a Rails engine.
+
 If you are interested in pure MongoDB localization (your model is MongoMapper::Document, for example), check out http://github.com/ahe/mongo_translation.
+
+== Dependencies
+
+   MongoMapper gem for interacting with MongoDB
+   routing-filter gem for setting up locale in your routes
+
+   So far this is only known to work with Rails 2.3.5. Feel free to fork and hack it to work with Rails 3 and let us know about it.
 
 == Installation
 
 You need to have mongodb installed and running.
 
-=== Installing Gem - Not Yet Released
+=== Installing Gem - !!!! Not Yet Released - build from source for time being
 
   gem install mongo_translatable
 
@@ -26,16 +35,89 @@ You need to have mongodb installed and running.
     gem install {generated gem file}
    
     Running rake will check that you have the dependencies installed correctly.
+
+== Usage
+
+In your model...
+
+The MongoTranslatable module is for taking advantage of MongoDB for storing translations
+of ActiveRecord models. Here is how it works in practice:
+  class Item < ActiveRecord::Base
+    mongo_translate :label
+  end
+
+Then you can do stuff like this (though you don't necessarily need to directly, see below)
+  I18n.locale = :en
+
+  item = Item.create(:label => "a label")
+  p item.locale
+  "en"
+
+  item = Item.find(1)
+  p item.label
+  "a label"
+
+  item.translate(:label => "etiketissä", :locale => :fi).save
   
+  or you could have set I18n.locale = :fi in calling env and dropped locale from args
+
+  I18n.locale = :fi
+  item = Item.find(1)
+  p item.label
+  "etiketissä"
+  p item.locale
+  "fi"
+
+Mongo_translatable also provides a UI for translations and thus an accompanying controller (translations), views, and helpers that manage CRUD for your model's translations.
+
+You'll need to set up the routes for the translations controller for each model in question.
+
+config.routes.rb in your app's code:
+
+ActionController::Routing::Routes.draw do |map|
+  map.filter 'locale' # see routing-filter gem
+  map.resources :items, :has_many => :translations
+end
+
+You'll probably want to add something like this to your application's app/controllers/application_controller.rb
+
+ # borrowed from kete application (http://github.com/kete/kete)
+ # modified to not rely only on mongo_translatable helpers
+ before_filter :set_locale
+ # first take the locale in the url, then the session[:locale],
+ # then the users locale, finally the default site locale
+ def set_locale
+   if params[:locale] && TranslationsHelper.available_locales.include?(params[:locale])
+     I18n.locale = params[:locale]
+   elsif session[:locale] && TranslationsHelper.available_locales.include?(session[:locale])
+     I18n.locale = session[:locale]
+   else
+     I18n.locale = I18n.default_locale
+   end
+   session[:locale] = I18n.locale # need to make sure this persists
+ end
+
+There are also helpers that you can use in your application for tying into the translations UI. Like so:
+
+<%= available_in_locales_for(@item) %>
+<%= needed_in_locales_for(@item, :lightbox => true) %>
+
+Finally, you'll probably want to provide add translation key/values for the UI's text to your config/locales/your_locale.yml (or .rb). See this gem's config/locales/en.yml for what to translate.  Feel free to contribute back your translations to us for your locale.
+
+See the tests and example code in the included test Rails app under test/full_2_3_5_app_with_tests for more details.
+
 == Note on Patches/Pull Requests
 
 * Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
+* Make your feature addition or bug fix to a branch following this convention:
+  enhancement_[ticket #]_short_description
+  or
+  bugfix_[ticket #]_short_description
+  replace [ticket #] with ticket number from http://kete.lighthouseapp.com/projects/61584-mongo_translatable
+* Add tests for it. This is important so we don't break it in a
   future version unintentionally.
 * Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+* Send me a pull request.
 
 == Copyright
 
