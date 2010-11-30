@@ -103,9 +103,9 @@ module TranslatablesHelper
   #Links to all locales
   def raw_locale_links(options = {})
      links = TranslationsHelper::available_locales.keys.collect do |locale|
-        link_to_unless_current(TranslationsHelper::available_locales[locale],
+       {:link => link_to_unless_current(TranslationsHelper::available_locales[locale],
           url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params)))
-        )
+        ), :locale => locale}
      end
      links
   end
