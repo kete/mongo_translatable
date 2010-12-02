@@ -113,7 +113,8 @@ module TranslatablesHelper
   #Translate link for the given locale
   def translate_link(translatable, options = {})
     options[:params] ||= {}
-    options[:params][:onclick] = 'update_translation_box(this); return false' if options[:lightbox]
+    options[:onclick] = 'update_translation_box(this); return false' if options[:lightbox]
+    options[:onclick] ||= ""
     #TODO tidy this up, make lightbox part of the basic params hash.
     action = translatable.translation_for(params[:locale]) ? :edit : :new
     options[:params][:id] = params[:locale] if action == :edit
@@ -124,7 +125,7 @@ module TranslatablesHelper
               { :action => action,
                 :controller => :translations,
                 translatable_key_from(translatable) => translatable,
-                :to_locale => params[:locale] }.merge(options[:params]))
+                :to_locale => params[:locale] }.merge(options[:params]), :onclick => options[:onclick])
     end
   end
 
