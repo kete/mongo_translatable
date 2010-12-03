@@ -110,23 +110,29 @@ module TranslatablesHelper
      links
   end
 
+  def raw_available_in_locales_links(translatable, options = {})
+    onclick = 'update_translation_box(this); return false' if options[:lightbox]
+    links = translatable.available_in_these_locales.collect do |locale|
+      {:link => link_to_unless_current(TranslationsHelper::available_locales[locale],
+                                      url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params))),
+                                      { :onclick => onclick }),
+                                      :locale => locale}
+    end
+    links
+  end
+
   #Translate link for the given locale
   def translate_link(translatable, options = {})
     options[:params] ||= {}
     options[:onclick] = 'update_translation_box(this); return false' if options[:lightbox]
     options[:onclick] ||= ""
-    #TODO tidy this up, make lightbox part of the basic params hash.
     action = translatable.translation_for(params[:locale]) ? :edit : :new
     options[:params][:id] = params[:locale] if action == :edit
-    if translatable.original_locale == params[:locale]
-      ""
-    else
-      link_to(I18n.t('translations.helpers.translate'),
-              { :action => action,
-                :controller => :translations,
-                translatable_key_from(translatable) => translatable,
-                :to_locale => params[:locale] }.merge(options[:params]), :onclick => options[:onclick])
-    end
+    link_to(I18n.t('translations.helpers.translate'),
+            { :action => action,
+              :controller => :translations,
+              translatable_key_from(translatable) => translatable,
+              :to_locale => params[:locale] }.merge(options[:params]), :onclick => options[:onclick])
   end
 
   def translatable_key_from(translatable)
