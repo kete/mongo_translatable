@@ -113,10 +113,16 @@ module TranslatablesHelper
   def raw_available_in_locales_links(translatable, options = {})
     onclick = 'update_translation_box(this); return false' if options[:lightbox]
     links = translatable.available_in_these_locales.collect do |locale|
-      {:link => link_to_unless_current(TranslationsHelper::available_locales[locale],
-                                      url_for(:locale => locale, :to_locale => (params[:to_locale] if defined?(params))),
-                                      { :onclick => onclick }),
-                                      :locale => locale}
+      if locale == I18n.locale
+        { :link => TranslationsHelper::available_locales[locale],
+          :locale => locale }
+      else
+        { :link => link_to(TranslationsHelper::available_locales[locale],
+                           url_for(:locale => locale,
+                                   :to_locale => (params[:to_locale] if defined?(params))),
+                           { :onclick => onclick }),
+          :locale => locale }
+      end
     end
     links
   end
