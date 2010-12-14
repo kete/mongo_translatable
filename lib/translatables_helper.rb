@@ -19,11 +19,23 @@ module TranslatablesHelper
       translated_in_locales << locale unless locale == translatable.original_locale
     end
 
-    manage_links = link_to(I18n.t('translations.helpers.manage'), {
-                             :controller => :translations,
-                             :action => :index,
-                             translatable_key_from(translatable) => translatable
-    })
+    manage_links = manage_translations_links_for(translatable, translated_in_locales, options)
+
+    if translated_in_locales.size > 0
+      html += "<li style='float:left; padding-left: 25px;'>(#{manage_links})</li>"
+    end
+
+    html += '</ul>'
+    html += "<div style='clear:both;'></div>"
+
+    translatable_lightbox_js_and_css if options[:lightbox]
+    google_auto_translatable_js
+
+    html
+  end
+
+  def manage_translations_links_for(translatable, translated_in_locales, options)
+    manage_links = String.new
 
     # we only have one locale beyond the original locale
     # just give its edit and delete links
@@ -43,19 +55,13 @@ module TranslatablesHelper
                                        }.merge(options[:params]), {
                                         :method => :delete,
                                         :confirm => t('translations.helpers.are_you_sure') })
+    elsif translated_in_locales.size > 1
+      manage_links = link_to(I18n.t('translations.helpers.manage'), {
+                               :controller => :translations,
+                               :action => :index,
+                               translatable_key_from(translatable) => translatable
+                             })
     end
-
-    if translated_in_locales.size > 0
-      html += "<li style='float:left; padding-left: 25px;'>(#{manage_links})</li>"
-    end
-
-    html += '</ul>'
-    html += "<div style='clear:both;'></div>"
-
-    translatable_lightbox_js_and_css if options[:lightbox]
-    google_auto_translatable_js
-
-    html
   end
 
   def needed_in_locales_for(translatable, options = {})
