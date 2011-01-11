@@ -138,7 +138,10 @@ module TranslatablesHelper
     options[:params] ||= {}
     options[:onclick] = 'update_translation_box(this); return false' if options[:lightbox]
     options[:onclick] ||= ""
+    
     action = translatable.translation_for(params[:locale]) ? :edit : :new
+    action = options[:action].present? ? options[:action] : action
+
     options[:params][:id] = params[:locale] if action == :edit
     link_to(I18n.t('translations.helpers.translate'),
             { :action => action,
