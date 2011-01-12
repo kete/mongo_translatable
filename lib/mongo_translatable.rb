@@ -84,9 +84,20 @@ module MongoTranslatable #:nodoc:
           cattr_accessor :translatable_class
           self.translatable_class = self.name.split('::').first.constantize
 
-          self.translatable_class.translatable_attributes.each do |translatable_attribute|
-            key translatable_attribute, String
+          def self.declare_key_from(spec)
+            key_type = String
+            key_name = spec
+
+            key_name, key_type = spec if spec.is_a?(Array)
+
+            unless keys.include?(key_name.to_s)
+              class_eval do
+                key key_name, key_type
+              end
+            end
           end
+
+          self.translatable_class.translatable_attributes.each { |a| declare_key_from(a) }
 
           key :locale, String, :required => true
 
@@ -96,13 +107,9 @@ module MongoTranslatable #:nodoc:
           # add definition of keys for mongo_translatable Translation class, if not already defined
           # add accessor methods, too, if not already defined
           def self.update_keys_if_necessary_with(new_translatable_attributes)
-            new_translatable_attributes.each do |attribute|
-              unless keys.include?(attribute.to_s)
-                class_eval do
-                  key attribute, String
-                end
-              end
-            end
+            attribute_type = String
+
+            new_translatable_attributes.each { |a| declare_key_from(a) }
           end
 
           # TODO: add validation for locale unique to translatable_class.as_foreign_key_sym scope

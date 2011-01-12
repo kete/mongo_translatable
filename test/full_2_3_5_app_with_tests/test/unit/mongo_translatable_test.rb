@@ -259,6 +259,45 @@ class MongodbTranslatableTest < ActiveSupport::TestCase
     end
   end
 
+  context "A Translatable class that has some translatable_attributes with key_type specified" do
+
+    should "have String for type of key without key_type specified (default)" do
+      assert_equal Recipe::Translation.keys['name'].type, String
+    end
+
+    should "have Array for type of key when " do
+      assert_equal Recipe::Translation.keys['steps'].type, Array
+      assert_equal Recipe::Translation.keys['ingredients'].type, Array
+    end
+    
+    context "can create translations that" do
+      setup do
+        I18n.locale = I18n.default_locale
+        @recipe = Factory.create(:recipe)
+      end
+      
+      should "return value in correct key type for translatable_attribute" do
+        assert_equal @recipe.steps, ["steps1 - 1", "steps1 - 2"]
+        assert_equal @recipe.ingredients, ["ingredients1 - 1", "ingredients1 - 2"]
+
+        fr_steps = ['fr step 1', 'fr step 2']
+        fr_ingredients = ['fr ingredient 1', 'fr ingredient 2']
+
+        @recipe_translation = @recipe.class::Translation.create(:name => @recipe.attributes['name'],
+                                                                :steps => fr_steps,
+                                                                :ingredients => fr_ingredients,
+                                                                :locale => :fr,
+                                                                @recipe.class.as_foreign_key_sym => @recipe.id)
+
+        @recipe_translation.reload
+        
+        assert_equal fr_steps, @recipe_translation.steps
+        assert_equal fr_ingredients, @recipe_translation.ingredients
+      end
+
+    end
+  end
+
   private
 
   # see many_tests for what it expects
