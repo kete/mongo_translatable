@@ -57,6 +57,11 @@ class TranslationTest < ActionController::IntegrationTest
         assert_contain "標籤"
       end
 
+      should "have original in original locale when viewing edit translation from a different locale" do
+        visit "/fr/items/1/translations/fr/edit"
+        assert_contain @item.label
+      end
+
       should "be able to edit translation" do
         visit "/en/items/1/translations/fr/edit"
         fill_in "item_translation_label", :with => "#{LOCALE_LABELS[:fr]} 2"

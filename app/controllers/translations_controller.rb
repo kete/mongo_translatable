@@ -107,6 +107,20 @@ class TranslationsController < ApplicationController
     define_method("get_" + term) do
       value = @translatable_class.find(params[@translatable_key])
 
+      # handle case of editing translation from another locale than original
+      if value.locale != value.original_locale &&
+          params[:controller] == 'translations' &&
+          params[:action] == 'edit'
+        
+        starting_locale = I18n.locale
+      
+        I18n.locale = value.original_locale
+
+        value.reload
+
+        I18n.locale = starting_locale
+      end
+
       instance_variable_set("@" + term, value)
     end
   end
