@@ -106,6 +106,13 @@ Finally, you'll probably want to provide add translation key/values for the UI's
 
 See the tests and example code in the included test Rails app under test/full_2_3_5_app_with_tests for more details.
 
+== TODOs
+
+* add mongo_mapper "timestamps!" to ...::Translation model set up by default
+* add  "key :user_id, String" to ...::Translation model set up by default, probably with required method implemented in owning model
+
+Holding off on these until there is an upgrade path for translation instances that don't have these values
+
 == Note on Patches/Pull Requests
 
 * Fork the project.
