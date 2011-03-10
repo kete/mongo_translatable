@@ -17,7 +17,7 @@ If you are interested in pure MongoDB localization (your model is MongoMapper::D
 
 You need to have mongodb installed and running.
 
-=== Installing Gem - !!!! Not Yet Released - build from source for time being
+=== Installing Gem
 
   gem install mongo_translatable
 
