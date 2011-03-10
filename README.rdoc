@@ -126,6 +126,10 @@ Holding off on these until there is an upgrade path for translation instances th
 * Commit, do not mess with rakefile, version, or history.
 * Send me a pull request.
 
+== Thank you
+
+Thanks go to Te Reo o Taranaki, Auckland City Libraries, and New Zealand Chinese Association Auckland Branch for funding the work for this project.
+
 == Copyright
 
 Copyright (c) 2010 Horowhenua Library Trust. See LICENSE for details.
